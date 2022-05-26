@@ -5,16 +5,16 @@
 #include <string>
 using namespace std;
 
-class Puestos {
+class Puesto {
 
 	// atributos
 private:	int id_puesto = 0;
-	   string puesto;
+	        string puesto;
 	   // constructor
 public:
-	Puestos() {
+	Puesto() {
 	}
-	Puestos(int idpuesto, string pues) {
+	Puesto(int idpuesto, string pues) {
 		id_puesto = idpuesto;
 		puesto = pues;
 
@@ -34,8 +34,7 @@ public:
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string id = to_string(id_puesto);
-			string insert = "INSERT INTO `proyecto final super mercado`.puestos (idPuesto,puesto)VALUES(" + id + ",'" + puesto + "');";
+			string insert = "INSERT INTO `proyecto final super mercado`.puestos (puesto)VALUES('" + puesto + "');";
 			const char* i = insert.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
