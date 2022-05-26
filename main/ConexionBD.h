@@ -2,6 +2,9 @@
 #include <mysql.h>
 #include <iostream>
 
+
+// prueba
+
 using namespace std;
 
 class ConexionBD {
