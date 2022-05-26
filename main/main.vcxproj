@@ -141,7 +141,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConexionBD.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Puesto.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConexionBD.h" />
+    <ClInclude Include="Puesto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
