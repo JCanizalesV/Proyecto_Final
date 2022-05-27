@@ -19,7 +19,7 @@ int main()
 
     //EMPLEADOS
     string e_nombres, e_apellidos, e_direccion, e_dpi, e_fechanacimiento, e_fechainicio, e_fechaingreso;
-    int id_empleado, e_telefono, e_genero; 
+    int id_empleado=0, e_telefono, e_genero; 
 
 
     int menu;
@@ -174,19 +174,21 @@ int main()
                     system("cls");
 
                     cout << "\n\n\t\t\tINGRESAR NUEVO EMPLEADO" << endl;
-                    cout << "\t\t\t---------------------" << endl << endl;
-                    cout << "\n\tIngrese nombres:          "; cin >> e_nombres;
-                    cout << "\n\tIngrese apellidos:          "; cin >> e_apellidos;
-                    cout << "\n\tIngrese direccion:          "; cin >> e_direccion;
-                    cout << "\n\tIngrese telefono:          "; cin >> e_telefono;
-                    cout << "\n\tIngrese DPI:          "; cin >> e_dpi;
-                    cout << "\n\tIngrese genero:          "; cin >> e_genero;
-                    cout << "\n\tIngrese fecha naci:          "; cin >> e_fechanacimiento;
-                    cout << "\n\tIngrese id_puesto:          "; cin >> id_puesto;
-                    cout << "\n\tIngrese fecha inicio:          "; cin >> e_fechainicio;
-                    cout << "\n\tIngrese fecha ingreso:          "; cin >> e_fechaingreso;
-
+                    cout << "\t\t\t----------------------" << endl << endl;
+                    cout << "\n\tIngrese nombres:                    "; cin >> e_nombres;
+                    cout << "\n\tIngrese apellidos:                  "; cin >> e_apellidos;
+                    cout << "\n\tIngrese direccion:                  "; cin >> e_direccion;
+                    cout << "\n\tIngrese telefono:                   "; cin >> e_telefono;
+                    cout << "\n\tIngrese DPI:                        "; cin >> e_dpi;
+                    cout << "\n\tIngrese genero:                     "; cin >> e_genero;
+                    cout << "\n\tIngrese fecha naci:                 "; cin >> e_fechanacimiento;
+                    cout << "\n\tIngrese id_puesto:                  "; cin >> id_puesto;
+                    cout << "\n\tIngrese fecha inicio:               "; cin >> e_fechainicio;
+                    cout << "\n\tIngrese fecha ingreso:              "; cin >> e_fechaingreso;
                     cout << "" << endl;
+
+                    Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
+                    e.crear();
 
 
                     system("pause");
