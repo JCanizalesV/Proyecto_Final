@@ -23,7 +23,7 @@ public:
 	// METODOS
 	//set (modificar)
 	void setID_puesto(int idpuesto) { id_puesto = idpuesto; }
-	void setCarnet(string pues) { puesto = pues; }
+	void setPuesto(string pues) { puesto = pues; }
 	//get (mostrar)
 	int getID_puesto() { return id_puesto; }
 	string getPuesto() { return puesto; }
@@ -62,7 +62,7 @@ public:
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << ". " << fila[1] << endl;
+					cout << "       " << fila[0] << ". " << fila[1] << endl;
 				}
 			}
 			else {

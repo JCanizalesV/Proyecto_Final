@@ -66,8 +66,9 @@ int main()
                 {
                     system("cls");
 
+
                     cout << "\n\n\t\t\tPUESTOS INGRESADOS" << endl;
-                    cout << "\t\t\t---------------------" << endl << endl;
+                    cout << "\t\t\t------------------" << endl << endl;
 
                     Puesto c = Puesto();
                     c.leer();
@@ -80,16 +81,24 @@ int main()
                 {
                     system("cls");
 
+                    cout << "\n\n\t\t\tPUESTOS INGRESADOS" << endl;
+                    cout << "\t\t\t------------------" << endl << endl;
+
+                    Puesto c = Puesto(id_puesto, puesto);
+                    c.leer();
+
                     cout << "\n\n\t\t\tACTUALIZAR O MODIFICAR PUESTO" << endl;
                     cout << "\t\t\t-----------------------------" << endl << endl;
 
                     cout << "\n\tIngrese ID que desea modificar:          "; cin >> id_puesto;
                     cout << "\n\tActualice puesto:          "; cin >> puesto;
                     cout << "" << endl;
+                                   
 
-                    Puesto c = Puesto(id_puesto, puesto);
+                    c.setID_puesto(id_puesto);
+                    c.setPuesto(puesto);
+                   
                     c.modificar();
-
 
                     cout << "" << endl;
                     system("pause");
