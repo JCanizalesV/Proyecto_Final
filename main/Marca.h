@@ -5,7 +5,6 @@
 #include <string>
 #include "Articulo.h"
 
-class Marca
 
 	using namespace std;
 
