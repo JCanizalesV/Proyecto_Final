@@ -88,7 +88,7 @@ class Empleado :
 	  MYSQL_RES* resultado;
 	  cn.abrir_conexion();
 	  if (cn.getConectar()) {
-		  string consulta = "SELECT * FROM `proyecto final super mercado`.empleados";
+		  string consulta = "SELECT idEmpleado, nombres, apellidos, direccion, telefono, DPI, if(genero = 0, 'Masculino', 'Femenino') as genero, fecha_nacimiento, idPuesto, fecha_inicio_labores, fechaingreso FROM `proyecto final super mercado`.empleados;";
 		  const char* c = consulta.c_str();
 		  q_estado = mysql_query(cn.getConectar(), c);
 		  if (!q_estado) {
