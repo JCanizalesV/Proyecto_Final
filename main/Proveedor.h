@@ -59,7 +59,7 @@ public:
 
 
 
-	void update() {
+	void modificar() {
 		int q_estado;
 
 		ConexionBD cn = ConexionBD();
