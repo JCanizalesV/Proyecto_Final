@@ -17,6 +17,7 @@ class Empleado :
 		private: int id_empleado = 0;
 			     int id_puesto = 0;
 				 string puesto;
+
 	// constructor
   public:
   Empleado() {
