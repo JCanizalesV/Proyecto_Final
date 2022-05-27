@@ -199,11 +199,11 @@ int main()
                     system("cls");
 
 
-                    cout << "\n\n\t\t\tPUESTOS INGRESADOS" << endl;
+                    cout << "\n\n\t\t\EMPLEADOS REGISTRADOS" << endl;
                     cout << "\t\t\t------------------" << endl << endl;
 
-                    Puesto c = Puesto();
-                    c.leer();
+                    Empleado e = Empleado();
+                    e.leer();
 
                     cout << "" << endl;
                     system("pause");
