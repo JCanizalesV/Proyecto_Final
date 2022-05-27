@@ -15,7 +15,7 @@ int main()
     {
         system("cls");
 
-        cout << "\n\n\t\t\tBIENVENIDO AL SUPERMERCADO DOS" << endl;
+        cout << "\n\n\t\t\tBIENVENIDO AL SUPERMERCADO GRUPO DOS" << endl;
         cout << "\t\t\t------------------------------" << endl << endl;
         //cout << "" << endl;
         cout << "\n\t1. Puestos" << endl; 
