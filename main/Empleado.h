@@ -12,7 +12,6 @@ using namespace std;
 class Empleado :
 	public   Persona_E  {
 
-
 		// atributos
 		private: int id_empleado = 0;
 			     int id_puesto = 0;
@@ -51,7 +50,6 @@ class Empleado :
   int getTelefono() { return telefono; }
   string getDPI() { return DPI; }
   int getGenero() { return genero; }
-  string getEmail() { return email; }
   string getFechaNacimiento() { return fecha_nacimiento; }
   int getID_puesto() { return id_puesto; }
   string getPuesto() { return puesto; }
