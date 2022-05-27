@@ -1,25 +1,20 @@
 #include <mysql.h>
 #include <iostream>
+#include "Puesto.h"
 
 using namespace std;
 
 int main()
 {
+    string pues;
+    int idpuesto = 0;
 
-    MYSQL* conectar;
-    conectar = mysql_init(0);
-    conectar = mysql_real_connect(conectar, "localhost", "root", "admin", "proyecto final super mercado", 3306, NULL, 0);
+    cout << "Ingrese puesto:";
+    cin >> pues;
 
-    if (conectar) {
-        cout << "LA CONEXION SE REALIZO CON EXITO" << endl;
-    }
-    else {
-        cout << "NO SE PUDO REALIZAR LA CONEXION" << endl;
-    }
-
-
-    // texto
-    // prueba
+    Puesto obj = Puesto(idpuesto,pues);
+    obj.crear();
+    obj.leer();
 
     system("pause");
     return 0;

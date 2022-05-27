@@ -142,11 +142,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConexionBD.cpp" />
+    <ClCompile Include="Funcion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Puesto.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConexionBD.h" />
+    <ClInclude Include="Funcion.h" />
     <ClInclude Include="Puesto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
