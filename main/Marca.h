@@ -8,7 +8,7 @@
 
 	using namespace std;
 
-	class Marca :
+	class Marca:
 		public Articulo {
 		// atributos
 	private: string marca;
@@ -16,7 +16,7 @@
 	public:
 		Marca() {
 		}
-		Marca(int idMarc, string marc) : Marca(idMarc) {
+		Marca(int idMarc, string marc) : Articulo(idMarc) {
 			marca = marc;
 
 		}
@@ -36,11 +36,15 @@
 			ConexionBD cn = ConexionBD();
 			cn.abrir_conexion();
 			if (cn.getConectar()) {
-				string insert = "INSERT INTO `Proyecto Final Super Mercado`.Marcas (marca)VALUES('" + marca + "');";
+				string insert = "INSERT INTO `proyecto final super mercado`.marcas (marca)VALUES('" + marca + "');";
+				//string insert = "INSERT INTO `proyecto final super mercado`.puestos (puesto)VALUES('" + puesto + "');";
+
 				const char* i = insert.c_str();
 				q_estado = mysql_query(cn.getConectar(), i);
 				if (!q_estado) {
 					cout << "Ingreso exitoso.." << endl;
+					cout << "" << endl;
+
 				}
 				else {
 					cout << "Error al ingresar información" << endl;
@@ -64,9 +68,8 @@
 				q_estado = mysql_query(cn.getConectar(), c);
 				if (!q_estado) {
 					resultado = mysql_store_result(cn.getConectar());
-					cout << "-----------------PUESTOS--------------------" << endl;
 					while (fila = mysql_fetch_row(resultado)) {
-						cout << fila[0] << "," << fila[1] << endl;
+						cout << "       " << fila[0] << ". " << fila[1] << endl;
 					}
 				}
 				else {
@@ -111,7 +114,7 @@
 			ConexionBD cn = ConexionBD();
 			cn.abrir_conexion();
 			if (cn.getConectar()) {
-				string id = to_string(idMarcas);
+				string id = to_string(idMarca);
 				string actualizar = "UPDATE `proyecto final super mercado`.Marcas SET marca='" + marca + "' WHERE idMarca =" + id + ";";
 				const char* i = actualizar.c_str();
 				q_estado = mysql_query(cn.getConectar(), i);
