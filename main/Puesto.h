@@ -22,7 +22,7 @@ public:
 	// METODOS
 	//set (modificar)
 	void setID_puesto(int idpuesto) { id_puesto = idpuesto; }
-	void setCarnet(string pues) { puesto = pues; }
+	void setPuesto(string pues) { puesto = pues; }
 	//get (mostrar)
 	int getID_puesto() { return id_puesto; }
 	string getPuesto() { return puesto; }
@@ -37,7 +37,7 @@ public:
 			const char* i = insert.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
-				cout << "Ingreso exitoso.." << endl;
+				cout << "Ingreso exitoso.." << endl << endl;
 			}
 			else {
 				cout << "Error al ingresar información" << endl;
@@ -60,9 +60,8 @@ public:
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
-				cout << "-----------------PUESTOS--------------------" << endl;
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << "," << fila[1] << endl;
+					cout << "       " << fila[0] << ". " << fila[1] << endl;
 				}
 			}
 			else {
@@ -105,7 +104,7 @@ public:
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string id = to_string(id_puesto);
-			string actualizar = "UPDATE `proyecto final super mercado`.puestos SET puesto='" + puesto + "' WHERE idEstudiante =" + id + ";";
+			string actualizar = "UPDATE `proyecto final super mercado`.puestos SET puesto='" + puesto + "' WHERE idPuesto =" + id + ";";
 			const char* i = actualizar.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
