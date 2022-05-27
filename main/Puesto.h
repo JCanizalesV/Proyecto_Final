@@ -3,19 +3,19 @@
 #include <mysql.h>
 #include "ConexionBD.h"
 #include <string>
+#include "Funcion.h"
+
 using namespace std;
 
-class Puesto {
-
-	// atributos
-private:	int id_puesto = 0;
-	        string puesto;
-	   // constructor
+class Puesto :
+	public Funcion{
+		// atributos
+		private: string puesto;
+	// constructor
 public:
 	Puesto() {
 	}
-	Puesto(int idpuesto, string pues) {
-		id_puesto = idpuesto;
+	Puesto(int idpuesto, string pues) : Funcion(idpuesto) {
 		puesto = pues;
 
 	}
