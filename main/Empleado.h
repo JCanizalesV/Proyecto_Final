@@ -157,6 +157,6 @@ class Empleado :
 	  }
 	  cn.cerrar_conexion();
   }
-	}
 };
+
 
