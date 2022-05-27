@@ -2,10 +2,6 @@
 #include <mysql.h>
 #include <iostream>
 
-
-// prueba
-// Prueba Jonatan
-
 using namespace std;
 
 class ConexionBD {
