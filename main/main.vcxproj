@@ -144,19 +144,23 @@
     <ClCompile Include="Articulo.cpp" />
     <ClCompile Include="ConexionBD.cpp" />
     <ClCompile Include="Empleado.cpp" />
+    <ClCompile Include="Empresa.cpp" />
     <ClCompile Include="Funcion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Marca.cpp" />
     <ClCompile Include="Persona_E.cpp" />
+    <ClCompile Include="Proveedor.cpp" />
     <ClCompile Include="Puesto.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Articulo.h" />
     <ClInclude Include="ConexionBD.h" />
     <ClInclude Include="Empleado.h" />
+    <ClInclude Include="Empresa.h" />
     <ClInclude Include="Funcion.h" />
     <ClInclude Include="Marca.h" />
     <ClInclude Include="Persona_E.h" />
+    <ClInclude Include="Proveedor.h" />
     <ClInclude Include="Puesto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

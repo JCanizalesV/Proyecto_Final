@@ -17,7 +17,6 @@ public:
 	}
 	Puesto(int idpuesto, string pues) : Funcion(idpuesto) {
 		puesto = pues;
-
 	}
 
 	// METODOS
