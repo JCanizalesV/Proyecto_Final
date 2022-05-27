@@ -47,7 +47,8 @@ int main()
                 cout << "\t2. Mostrar puestos ingresados" << endl;
                 cout << "\t3. Modificar o actualizar un puesto ingresado" << endl;
                 cout << "\t4. Eliminar un puesto ingresado" << endl;
-                cout << "\t5. SALIR AL MENU PRINCIPAL" << endl;
+                cout << "" << endl;
+                cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
 
                 cout << "\n\tIngrese la opcion que desea realizar:       ";
                 cin >> menu;
@@ -127,7 +128,7 @@ int main()
                     cout << "" << endl;
                     system("pause");
                 }
-            } while (menu != 5);
+            } while (menu != 11);
 
             cout << "" << endl;
             system("pause");
@@ -165,7 +166,8 @@ int main()
             cout << "\t2. Mostrar Marcas disponibles" << endl;
             cout << "\t3. Modificar o actualizar alguna Marca" << endl;
             cout << "\t4. Eliminar una Marca registrada" << endl;
-            cout << "\t5. SALIR AL MENU PRINCIPAL" << endl;
+            cout << "" << endl;
+            cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
 
             cout << "\n\tIngrese la opcion que desea realizar:       ";
             cin >> menu;
@@ -245,7 +247,7 @@ int main()
                 cout << "" << endl;
                 system("pause");
             }
-            } while (menu != 5);
+            } while (menu != 11);
 
             cout << "" << endl;
             system("pause");
@@ -256,9 +258,18 @@ int main()
         {
             system("cls");
 
-            cout << "4.------          ELIMINAR ESTUDIANTE           %%%%%%" << endl;
+            cout << "------          REGRESANDO AL MENU PRINCIPAL           %%%%%%" << endl;
+            system("cls");
 
+            cout << "\n\n\t\t\tMENU MARCAS" << endl;
+            cout << "\t\t\t-----------" << endl << endl;
+            cout << "\n\t1. Registre nueva Marca" << endl;
+            cout << "\t2. Mostrar Marcas disponibles" << endl;
+            cout << "\t3. Modificar o actualizar alguna Marca" << endl;
+            cout << "\t4. Eliminar una Marca registrada" << endl;
+            cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
 
+            system("pause");
             cout << "" << endl;
             system("pause");
         }
@@ -268,7 +279,7 @@ int main()
         {
             system("cls");
 
-            cout << "4.------          ELIMINAR ESTUDIANTE           %%%%%%" << endl;
+            cout << "4.------          ELIMI%%%%%%" << endl;
 
 
             cout << "" << endl;
