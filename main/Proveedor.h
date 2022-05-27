@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Proveedor :
+class Proveedor:
 	public Empresa {
 
 	// atributos
@@ -32,15 +32,15 @@ public:
 	string getproveedor() { return proveedor; }
 	string getnit() { return nit; }
 	string getdireccion() { return direccion; }
-	int gettelefono() { return telefono; }
+	string gettelefono() { return telefono; }
 
 	void crear() {
 		int q_estado;
-		Conector cn = Conector();
-		cn.conexion_abierta();
+		ConexionBD cn = ConexionBD();
+		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string idProve = to_string(idProveedor);
-			string insert = "INSERT INTO `proyecto final super mercado`.Proveedores(proveedor,nit,direccion,telefono) VALUES('" + proveedor + "','" + nit + "','" + direccion + "'," + tel + "' )";
+			string insert = "INSERT INTO `proyecto final super mercado`.Proveedores(proveedor,nit,direccion,telefono) VALUES('" + proveedor + "','" + nit + "','" + direccion + "','" + telefono + "' )";
 			const char* i = insert.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
@@ -53,7 +53,7 @@ public:
 		else {
 			cout << "-----...ERROR EN LA CONEXION...-----" << endl;
 		}
-		cn.conexion_cerrada();
+		cn.cerrar_conexion();
 
 	}
 
@@ -62,8 +62,8 @@ public:
 	void update() {
 		int q_estado;
 
-		Conector cn = Conector();
-		cn.conexion_abierta();
+		ConexionBD cn = ConexionBD();
+		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string idProve = to_string(idProveedor);
 			string actualizar = "UPDATE `proyecto final super mercado` SET proveedor = '" + proveedor + "', nit = '" + nit + "', direccion = '" + direccion + "', telefono = " + telefono + "' WHERE idProveedor = " + idProve + "";
@@ -80,7 +80,7 @@ public:
 		else {
 			cout << "-----...ERROR EN LA CONEXION...-----" << endl;
 		}
-		cn.conexion_cerrada();
+		cn.cerrar_conexion();
 
 	}
 
@@ -89,8 +89,8 @@ public:
 	void borrar() {
 		int q_estado;
 
-		Conector cn = Conector();
-		cn.conexion_abierta();
+		ConexionBD cn = ConexionBD();
+		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string idProve = to_string(idProveedor);
 			string delet = "DELETE FROM `proyecto final super mercado`.Proveedores WHERE idProveedor = " + idProve + "";
@@ -107,17 +107,17 @@ public:
 		else {
 			cout << "-----...ERROR EN LA CONEXION...-----" << endl;
 		}
-		cn.conexion_cerrada();
+		cn.cerrar_conexion();
 
 	}
 
 
 	void mostrar() {
 		int q_estado;
-		Conector cn = Conector();
+		ConexionBD cn = ConexionBD();
 		MYSQL_ROW fila;
 		MYSQL_RES* resultado;
-		cn.conexion_abierta();
+		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string leer = "select * `proyecto final super mercado`.Proveedores ";
 			const char* c = leer.c_str();
@@ -136,7 +136,7 @@ public:
 		else {
 			cout << "-----...ERROR EN LA CONEXION...-----" << endl;
 		}
-		cn.conexion_cerrada();
+		cn.cerrar_conexion();
 	}
 };
 
