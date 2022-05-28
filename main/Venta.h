@@ -18,12 +18,6 @@ public:
 	Venta(int idV,int nfact, string ser, string fefact, int idc, int idEm, , string fein) {
 		idVenta = idV;
 	}
-	/*	nofactura = nfact;
-		idCliente = idc;
-		idEmpleado = idEm;
-		serie = ser;
-		fechafactura = fefact;
-		fechaingreso = fein;;*/
 
 
 	//metodo
