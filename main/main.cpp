@@ -386,7 +386,7 @@ int main()
                     cout << "\t\t-----------------------" << endl << endl;
 
                     Proveedor p = Proveedor();
-                    p.mostrar();
+                    p.mostrarde();
 
                     cout << "" << endl;
 
@@ -704,12 +704,11 @@ int main()
                         {
                             system("cls");
 
-
                             cout << "\n\n\t\t\PROVEEDORES REGISTRADOS" << endl;
                             cout << "\t\t-----------------------" << endl << endl;
 
                             Proveedor p = Proveedor();
-                            p.mostrar();
+                            p.mostrarde();
                             cout << "" << endl;
                             cout << "" << endl;
 
@@ -744,7 +743,7 @@ int main()
                                 cout << "\t\t---------------------" << endl << endl;
 
                                 Producto pro = Producto(id_productos, producto, id_marca, marca, descripcion, imagen, precio_costo, precio_venta, existencias, prod_fechaingreso);
-                                pro.leer();
+                                pro.leer2();
                                 cout << "" << endl;
                                 cout << "" << endl;
 
