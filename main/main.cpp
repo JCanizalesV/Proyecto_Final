@@ -712,9 +712,11 @@ int main()
                             cout << "Ingrese Fecha de Orden (AAAA-MM-DD):             "; cin >> fecha_orden_c;
                             cout << "Ingrese Fecha de Ingreso(AAAA-MM-DD):            "; cin >> fechaingreso_c;
 
-                            cout << "Si la datos ingresados son correctos presione Y, si desea cancelar la compra presione N:   "; cin >> menu_compra;
                             Compra c = Compra(idcompras_c, orden_c, id_proveedor, fecha_orden_c, fechaingreso_c);
                             c.crear();
+
+                            cout << "Si la datos ingresados son correctos presione Y, si desea cancelar la compra presione N:   "; cin >> menu_compra;
+                         
 
 
                             if (menu_compra == 'Y')
@@ -737,18 +739,26 @@ int main()
                                 Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
                                 cd.crear();
 
+
+                                system("pause");
+
                             }
 
 
                             if (menu_compra == 'N')
                             {
+                                system("cls");
 
-                                cout << "su :";
+                                
+                                cout << "Su Compra anterior ha sido cancelada con exito";
+                                cout << "" << endl;
+                                cout << "" << endl;
+
+                                system("pause");
 
                             }
 
 
-                            system("pause");
                         }
                    
                     } while (menu_dos != 12);

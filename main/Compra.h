@@ -50,7 +50,9 @@ public :
 			const char* i = insert.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
-				cout << "Ingreso exitoso.." << endl;
+				cout << "" << endl;
+				cout << "Sus datos han sido creados exitosamente" << endl;
+				cout << "" << endl;
 			}
 			else {
 				cout << "Error al ingresar informacion" << endl;
