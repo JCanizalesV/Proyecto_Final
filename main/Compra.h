@@ -11,7 +11,7 @@ using namespace std;
 class Compra :
 	public Factura_C { //pendiente de cambio 
 	//atributos
-private: idCompra = 0;
+private: int idCompra = 0;
 public :
 
 	Compra() {
@@ -97,7 +97,7 @@ public :
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "SELECT * FROM `proyecto final super mercado`.compras;
+			string consulta = "SELECT * FROM `proyecto final super mercado`.compras;";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
