@@ -127,7 +127,12 @@ public:
 				resultado = mysql_store_result(cn.getConectar());
 
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << endl;
+					cout << "ID Proveedor:           " << fila[0] << endl;
+					cout << "Proveedor:              " << fila[1] << endl;
+					cout << "NIT:                    " << fila[2] << endl;
+					cout << "Direccion:              " << fila[3] << endl;
+					cout << "Telefono:               " << fila[4] << endl;
+					cout << "" << endl;
 				}
 			}
 			else {
@@ -139,8 +144,34 @@ public:
 		}
 		cn.cerrar_conexion();
 	}
+
+
+void mostrarde() {
+	int q_estado;
+	ConexionBD cn = ConexionBD();
+	MYSQL_ROW fila;
+	MYSQL_RES* resultado;
+	cn.abrir_conexion();
+	if (cn.getConectar()) {
+		string leer = "SELECT idProveedor, proveedor FROM `proyecto final super mercado`.proveedores;";
+		const char* c = leer.c_str();
+		q_estado = mysql_query(cn.getConectar(), c);
+		if (!q_estado) {
+			resultado = mysql_store_result(cn.getConectar());
+
+			while (fila = mysql_fetch_row(resultado)) {
+				cout << "ID Proveedor:           " << fila[0] << endl;
+				cout << "Proveedor:              " << fila[1] << endl;
+				cout << "" << endl;
+			}
+		}
+		else {
+			cout << " Error al mostrar los datos " << endl;
+		}
+	}
+	else {
+		cout << "-----...ERROR EN LA CONEXION...-----" << endl;
+	}
+	cn.cerrar_conexion();
+}
 };
-
-
-
-

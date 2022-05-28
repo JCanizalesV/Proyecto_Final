@@ -91,7 +91,50 @@ public:
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << ",  " << fila[8] << endl;
+					cout << "" << endl;
+					cout << "Id Producto:                        " << fila[0] << endl;
+					cout << "Producto:                           " << fila[1] << endl;
+					cout << "Marca:                              " << fila[2] << endl;
+					cout << "Descripcion:                        " << fila[3] << endl;
+					cout << "Imagen:                             " << fila[4] << endl;
+					cout << "Precio Costo:                       " << fila[5] << endl;
+					cout << "Precio Venta:                       " << fila[6] << endl;
+					cout << "Existencia:                         " << fila[7] << endl;
+					cout << "Fecha Ingreso:                      " << fila[8] << endl;
+
+					//cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << ",  " << fila[8] << endl;
+				}
+			}
+			else {
+				cout << "Error al ingresar informacion" << endl;
+			}
+		}
+		else {
+			cout << "Error en la conexion" << endl;
+		}
+		cn.cerrar_conexion();
+
+	}
+
+	
+	void leer2() {
+		int q_estado;
+		ConexionBD cn = ConexionBD();
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string consulta = "SELECT idProducto, producto, precio_venta FROM `proyecto final super mercado`.productos;";
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				while (fila = mysql_fetch_row(resultado)) {
+					cout << "" << endl;
+					cout << fila[0] << ") Producto:            " << fila[1] << endl;
+					cout << "   Precio Venta:        Q." << fila[2] << endl;
+
+					//cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << ",  " << fila[8] << endl;
 				}
 			}
 			else {
