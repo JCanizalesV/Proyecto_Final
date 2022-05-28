@@ -85,13 +85,13 @@ public:
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "SELECT a.idEmpleado, a.nombres, a.apellidos, a.direccion, a.telefono, a.DPI, if(a.genero = 1,'Masculino', 'Femenino') as genero, a.fecha_nacimiento, b.puesto, a.fecha_inicio_labores, a.fechaingreso FROM `proyecto final super mercado`.empleados as a INNER JOIN `proyecto final super mercado`.puestos as b ON a.idPuesto = b.idPuesto;";
+			string consulta = "SELECT a.idProducto,a.producto,b.marca,a.Descripcion, a.Imagen,a.precio_costo,a.precio_venta, a.existencia, a.fecha_ingreso FROM `proyecto final super mercado`.productos as a INNER JOIN `proyecto final super mercado`.marcas as b ON a.idmarca = b.idmarca;";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << ",  " << fila[8] << ",  " << fila[9] << ",  " << fila[10] << endl;
+					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << ",  " << fila[8] << endl;
 				}
 			}
 			else {
