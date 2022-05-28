@@ -814,6 +814,10 @@ int main()
                 {
                     system("cls");
 
+                    cout << "Ingrese Numero de Orden:                         "; cin >> orden_c;
+                    cout << "Ingrese ID de Proveedor:                         "; cin >> id_proveedor;
+                    cout << "Ingrese Fecha de Orden (AAAA-MM-DD):             "; cin >> fecha_orden_c;
+                    cout << "Ingrese Fecha de Ingreso(AAAA-MM-DD):            "; cin >> fechaingreso_c;
 
                     cout << "" << endl;
                     system("pause");
