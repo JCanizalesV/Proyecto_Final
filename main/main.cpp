@@ -33,11 +33,17 @@ int main()
     int id_productos = 0, existencias = 0; // id_marca foranea
     double precio_costo = 0, precio_venta = 0;
 
+    //COMPRAS
+
+    string compras_c, direccion_c, fecha_orden_c, fechaingreso_c;
+    int idcompras_c, orden_c = 0;
+
     //CLIENTES
     string c_nombres, c_apellidos, c_nit, c_telefono, c_correo, c_fechaingreso;
     int id_clientes = 0, c_genero=0;
 
-    int menu;
+    int menu, menu_dos;
+    char menu_compra;
 
     do
     {
@@ -652,18 +658,16 @@ int main()
         {
             system("cls");
 
-            cout << "4.------          ELIMI%%%%%%" << endl;
-
             do
             {
                 system("cls");
 
-                cout << "\n\n\t\t\tMENU EMPLEADOS" << endl;
-                cout << "\t\t\t--------------" << endl << endl;
-                cout << "\n\t1. Ingresar un nuevo empleado al supermercado" << endl;
-                cout << "\t2. Mostrar empleados registrados" << endl;
-                cout << "\t3. Modificar o actualizar un empleado registrado" << endl;
-                cout << "\t4. Eliminar un empleado registrado" << endl;
+                cout << "\n\n\t\t\tMENU COMPRAS" << endl;
+                cout << "\t\t\t------------" << endl << endl;
+                cout << "\n\t1. Realizar nueva compra dentro del supermercado" << endl;
+                cout << "\t2. Mostrar base de comprar realizadas" << endl;
+                cout << "\t3. Modificar o actualizar compra" << endl;
+                cout << "\t4. Eliminar una compra registrada" << endl;
                 cout << "" << endl;
                 cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
 
@@ -673,33 +677,86 @@ int main()
 
                 if (menu == 1)
                 {
-                    system("cls");
 
-                    cout << "\n\n\t\t\tPUESTOS INGRESADOS" << endl;
-                    cout << "\t\t\t------------------" << endl << endl;
+                   do
+                    {
+                        system("cls");
 
-                    Puesto c = Puesto();
-                    c.leer();
+                        cout << "\n\n\t\t\tRELIZAR COMPRA" << endl;
+                        cout << "\t\t\t----------------------" << endl << endl;
 
-                    cout << "\n\n\t\t\tINGRESAR NUEVO EMPLEADO" << endl;
-                    cout << "\t\t\t-----------------------" << endl << endl;
-                    cout << "      Ingrese nombres:                                                   "; cin >> e_nombres;
-                    cout << "      Ingrese apellidos:                                                 "; cin >> e_apellidos;
-                    cout << "      Ingrese direccion:                                                 "; cin >> e_direccion;
-                    cout << "      Ingrese telefono:                                                  "; cin >> e_telefono;
-                    cout << "      Ingrese DPI:                                                       "; cin >> e_dpi;
-                    cout << "      Ingrese genero (1 = Masculino, 0 = Femenino):                      "; cin >> e_genero;
-                    cout << "      Ingrese fecha de nacimiento (AAAA-MM-DD):                          "; cin >> e_fechanacimiento;
-                    cout << "      Ingrese el numero de puesto que ocupara:                           "; cin >> id_puesto;
-                    cout << "      Ingrese la fecha de inicio labores (AAAA-MM-DD):                   "; cin >> e_fechainicio;
-                    cout << "      Ingrese fecha de ingreso (AAAA-MM-DD):                             "; cin >> e_fechaingreso;
-                    cout << "" << endl;
+                        cout << "\n\t1. Ingresar Compra" << endl;
+                        cout << "\t12. Regresar al MENU COMPRAS" << endl;
+                        cout << "" << endl;
 
-                    Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
-                    e.crear();
+                        cout << "\n\tIngrese la opcion que desea realizar:       ";
+                        cin >> menu_dos;
+                        cout << "" << endl;
+
+                        if (menu_dos == 1)
+                        {
+                            system("cls");
+
+                            cout << "BIENVENIDO AL SISTEMA DE COMPRA" << endl; 
+
+                            cout << "Ingrese Numero de Orden:                         "; cin >> orden_c;
+                            cout << "Ingrese ID de Proveedor:                         "; cin >> id_proveedor;
+                            cout << "Ingrese Fecha de Orden (AAAA-MM-DD):             "; cin >> fecha_orden_c;
+                            cout << "Ingrese Fecha de Ingreso(AAAA-MM-DD):            "; cin >> fechaingreso_c;
+
+                            cout << "Si la datos ingresados son correctos presione Y, si desea cancelar la compra presione N:   "; cin >> menu_compra;
+
+                            if (menu_compra == 'Y')
+                            {
+
+                                cout << "su id compra anterior es :";
+
+                            }
 
 
-                    system("pause");
+                            if (menu_compra == 'N')
+                            {
+
+                                cout << "su :";
+
+                            }
+
+                           // cout << "Su Pre-Compra se ha creado con exito" << endl;
+                            //cout << "" << endl;
+                         
+
+                            system("pause");
+                        }
+                   
+                    } while (menu_dos != 12);
+
+
+                  /*  do
+                    {
+                        cout << "Si los datos son correctos ingrese Y o ingrese N para cancelar la compra:      "; cin >> menu_dos;
+
+                        {
+                            if (menu_dos == 13)
+
+                            system("cls");
+
+                            cout << "Su Pre-Compra se ha creado con exito" << endl;
+                            cout << "" << endl;
+                            
+                            cout << "Favor confirme ID compra:     "; cin >> idcompras_c;
+                            cout << "" << endl;
+
+                        }
+
+                
+                            system("cls");
+
+                            cout << "Su Compra ha sido cancelada con exito" << endl;
+
+                        
+                    } while (menu_dos == 15);*/
+                  
+           
                 }
 
                 if (menu == 2)
@@ -780,7 +837,7 @@ int main()
                     cout << "\n\n\t\t\tELIMINAR EMPLEADO REGISTRADO" << endl;
                     cout << "\t\t\t----------------------------" << endl << endl;
 
-                    cout << "\n\tIngrese ID del empleado que desea eliminar:          "; cin >> id_empleado;
+                    cout << "\n\tIngrese ID del empleado que desea eliminar:          "; cin >> menu_dos;
                     cout << "" << endl;
 
                     Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
