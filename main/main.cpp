@@ -35,7 +35,7 @@ int main()
 
     //CLIENTES
     string c_nombres, c_apellidos, c_nit, c_telefono, c_correo, c_fechaingreso;
-    int id_clientes = 0, c_genero;
+    int id_clientes = 0, c_genero=0;
 
     int menu;
 
