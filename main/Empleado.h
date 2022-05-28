@@ -88,12 +88,11 @@ class Empleado :
 	  MYSQL_RES* resultado;
 	  cn.abrir_conexion();
 	  if (cn.getConectar()) {
-		  string consulta = "SELECT a.idEmpleado, a.nombres, a.apellidos, a.direccion, a.telefono, a.DPI, if(a.genero = 0,'Masculino', 'Femenino') as genero, a.fecha_nacimiento, b.puesto, a.fecha_inicio_labores, a.fechaingreso FROM `proyecto final super mercado`.empleados as a INNER JOIN `proyecto final super mercado`.puestos as b ON a.idPuesto = b.idPuesto;";
+		  string consulta = "SELECT a.idEmpleado, a.nombres, a.apellidos, a.direccion, a.telefono, a.DPI, if(a.genero = 1,'Masculino', 'Femenino') as genero, a.fecha_nacimiento, b.puesto, a.fecha_inicio_labores, a.fechaingreso FROM `proyecto final super mercado`.empleados as a INNER JOIN `proyecto final super mercado`.puestos as b ON a.idPuesto = b.idPuesto;";
 		  const char* c = consulta.c_str();
 		  q_estado = mysql_query(cn.getConectar(), c);
 		  if (!q_estado) {
 			  resultado = mysql_store_result(cn.getConectar());
-			  cout << "-----------------EMPLEADOS--------------------" << endl;
 			  while (fila = mysql_fetch_row(resultado)) {
 				  cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << ",  " << fila[8] << ",  " << fila[9] << ",  " << fila[10] << endl;
 			  }
@@ -141,7 +140,10 @@ class Empleado :
 		  string t = to_string(telefono);
 		  string g = to_string(genero);
 		  string p = to_string(id_puesto);
-		  string actualizar = "UPDATE estudiantes.estudiantes SET nombres='" + nombre + "',apellidos='" + apellido + "',direccion='" + direccion + "',telefono = " + t + ",DPI='" + DPI + "',genero=" + g + ",fecha_nacimiento='" + fecha_nacimiento + "',idPuesto=" + p +",fecha_incio_labores='" + fecha_inicio_labores + "',fechaingreso='" + fechaingreso + "',  WHERE idEmpleado =" + id + ";";
+		  string actualizar = "UPDATE `proyecto final super mercado`.empleados SET nombres='" + nombre + "',apellidos='" + apellido + "',direccion='" + direccion + "',telefono = " + t + ",DPI='" + DPI + "',genero=" + g + ",fecha_nacimiento='" + fecha_nacimiento + "',idPuesto=" + p +",fecha_inicio_labores='" + fecha_inicio_labores + "',fechaingreso='" + fechaingreso + "'  WHERE idEmpleado =" + id + ";";
+		  //				   UPDATE `proyecto final super mercado`.`empleados` SET `nombres` = '', `` = '', `direccion` = 'F', `telefono` = '39404', `DPI` = '1232', `genero` = '0', `fecha_nacimiento` = '2000-01-02', `idPuesto` = '1', `fecha_inicio_labores` = '2021-02-13', `fechaingreso` = '2021-03-11 00:00:00' WHERE (`idEmpleado` = '1');
+		  //string actualizar = "UPDATE `proyecto final super mercado`.empleados SET nombres='" + nombre + "',apellidos='" + apellido + "',direccion='" + direccion + "',telefono = " + t + ",DPI='" + DPI + "',genero=" + g + ",fecha_nacimiento='" + fecha_nacimiento + "',idPuesto=" + p +",fecha_incio_labores='" + fecha_inicio_labores + "',fechaingreso='" + fechaingreso + "'  WHERE idEmpleado =" + id + ";";
+
 		  const char* i = actualizar.c_str();
 		  q_estado = mysql_query(cn.getConectar(), i);
 		  if (!q_estado) {

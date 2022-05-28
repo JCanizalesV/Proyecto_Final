@@ -10,16 +10,16 @@ using namespace std;
 int main()
 {
     //PUESTO
-    string puesto; 
-    int id_puesto; 
+    string puesto;
+    int id_puesto;
 
     // MARCA
-    string marca; 
+    string marca;
     int id_marca;
 
     //EMPLEADOS
     string e_nombres, e_apellidos, e_direccion, e_dpi, e_fechanacimiento, e_fechainicio, e_fechaingreso;
-    int id_empleado=0, e_telefono, e_genero; 
+    int id_empleado = 0, e_telefono, e_genero;
 
 
     int menu;
@@ -29,7 +29,7 @@ int main()
         system("cls");
 
         cout << "\n\n\t\t\tBIENVENIDO AL SUPERMERCADO GRUPO DOS" << endl;
-        cout << "\t\t\t------------------------------" << endl << endl;
+        cout << "\t\t\t------------------------------------" << endl << endl;
         //cout << "" << endl;
         cout << "\n\t1. Puestos" << endl;
         cout << "\t2. Empleados" << endl;
@@ -157,11 +157,11 @@ int main()
                 system("cls");
 
                 cout << "\n\n\t\t\tMENU EMPLEADOS" << endl;
-                cout << "\t\t\t------------" << endl << endl;
+                cout << "\t\t\t--------------" << endl << endl;
                 cout << "\n\t1. Ingresar un nuevo empleado al supermercado" << endl;
-                cout << "\t2. Mostrar puestos ingresados" << endl;
-                cout << "\t3. Modificar o actualizar un puesto ingresado" << endl;
-                cout << "\t4. Eliminar un puesto ingresado" << endl;
+                cout << "\t2. Mostrar empleados registrados" << endl;
+                cout << "\t3. Modificar o actualizar un empleado registrado" << endl;
+                cout << "\t4. Eliminar un empleado registrado" << endl;
                 cout << "" << endl;
                 cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
 
@@ -173,18 +173,24 @@ int main()
                 {
                     system("cls");
 
+                    cout << "\n\n\t\t\tPUESTOS INGRESADOS" << endl;
+                    cout << "\t\t\t------------------" << endl << endl;
+
+                    Puesto c = Puesto();
+                    c.leer();
+
                     cout << "\n\n\t\t\tINGRESAR NUEVO EMPLEADO" << endl;
-                    cout << "\t\t\t----------------------" << endl << endl;
-                    cout << "\n\tIngrese nombres:                    "; cin >> e_nombres;
-                    cout << "\n\tIngrese apellidos:                  "; cin >> e_apellidos;
-                    cout << "\n\tIngrese direccion:                  "; cin >> e_direccion;
-                    cout << "\n\tIngrese telefono:                   "; cin >> e_telefono;
-                    cout << "\n\tIngrese DPI:                        "; cin >> e_dpi;
-                    cout << "\n\tIngrese genero:                     "; cin >> e_genero;
-                    cout << "\n\tIngrese fecha naci:                 "; cin >> e_fechanacimiento;
-                    cout << "\n\tIngrese id_puesto:                  "; cin >> id_puesto;
-                    cout << "\n\tIngrese fecha inicio:               "; cin >> e_fechainicio;
-                    cout << "\n\tIngrese fecha ingreso:              "; cin >> e_fechaingreso;
+                    cout << "\t\t\t-----------------------" << endl << endl;
+                    cout << "      Ingrese nombres:                                                   "; cin >> e_nombres;
+                    cout << "      Ingrese apellidos:                                                 "; cin >> e_apellidos;
+                    cout << "      Ingrese direccion:                                                 "; cin >> e_direccion;
+                    cout << "      Ingrese telefono:                                                  "; cin >> e_telefono;
+                    cout << "      Ingrese DPI:                                                       "; cin >> e_dpi;
+                    cout << "      Ingrese genero (1 = Masculino, 0 = Femenino):                      "; cin >> e_genero;
+                    cout << "      Ingrese fecha de nacimiento (AAAA-MM-DD):                          "; cin >> e_fechanacimiento;
+                    cout << "      Ingrese el numero de puesto que ocupara:                           "; cin >> id_puesto;
+                    cout << "      Ingrese la fecha de inicio labores (AAAA-MM-DD):                   "; cin >> e_fechainicio;
+                    cout << "      Ingrese fecha de ingreso (AAAA-MM-DD):                             "; cin >> e_fechaingreso;
                     cout << "" << endl;
 
                     Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
@@ -200,7 +206,7 @@ int main()
 
 
                     cout << "\n\n\t\t\EMPLEADOS REGISTRADOS" << endl;
-                    cout << "\t\t\t------------------" << endl << endl;
+                    cout << "\t\t---------------------" << endl << endl;
 
                     Empleado e = Empleado();
                     e.leer();
@@ -216,21 +222,49 @@ int main()
                     cout << "\n\n\t\t\tPUESTOS INGRESADOS" << endl;
                     cout << "\t\t\t------------------" << endl << endl;
 
-                    Puesto c = Puesto(id_puesto, puesto);
+                    Puesto c = Puesto();
                     c.leer();
 
-                    cout << "\n\n\t\t\tACTUALIZAR O MODIFICAR PUESTO" << endl;
-                    cout << "\t\t\t-----------------------------" << endl << endl;
+                   /*cout << "\n\n\t\t\EMPLEADOS REGISTRADOS" << endl;
+                    cout << "\t\t---------------------" << endl << endl;
 
-                    cout << "\n\tIngrese ID que desea modificar:          "; cin >> id_puesto;
-                    cout << "\n\tActualice puesto:          "; cin >> puesto;
+                    Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
+                    e.leer();*/
+
                     cout << "" << endl;
 
+                    cout << "\n\n\t\t\tMODIFICAR EMPLEADO REGISTRADO" << endl;
+                    cout << "\t\t\t-----------------------------" << endl << endl;
 
-                    c.setID_puesto(id_puesto);
-                    c.setPuesto(puesto);
+                    cout << "      Ingrese ID del empleado que desea modificar:                       "; cin >> id_empleado;
+                    cout << "" << endl;
+                    cout << "      Ingrese nombres:                                                   "; cin >> e_nombres;
+                    cout << "      Ingrese apellidos:                                                 "; cin >> e_apellidos;
+                    cout << "      Ingrese direccion:                                                 "; cin >> e_direccion;
+                    cout << "      Ingrese telefono:                                                  "; cin >> e_telefono;
+                    cout << "      Ingrese DPI:                                                       "; cin >> e_dpi;
+                    cout << "      Ingrese genero (1 = Masculino, 0 = Femenino):                      "; cin >> e_genero;
+                    cout << "      Ingrese fecha de nacimiento (AAAA-MM-DD):                          "; cin >> e_fechanacimiento;
+                    cout << "      Ingrese el numero de puesto que ocupara:                           "; cin >> id_puesto;
+                    cout << "      Ingrese la fecha de inicio labores (AAAA-MM-DD):                   "; cin >> e_fechainicio;
+                    cout << "      Ingrese fecha de ingreso (AAAA-MM-DD):                             "; cin >> e_fechaingreso;
+                    cout << "" << endl;
+                   
+                   Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
+                    
+                    e.setID_empleado(id_empleado);
+                    e.setNombres(e_nombres);
+                    e.setApellidos(e_apellidos);
+                    e.setDireccion(e_direccion);
+                    e.setTelefono(e_telefono);
+                    e.setDPI(e_dpi);
+                    e.setGenero(e_genero);
+                    e.setFechaNacimiento(e_fechanacimiento);
+                    e.setPuesto(id_puesto);
+                    e.setFechaInicioLabores(e_fechainicio);
+                    e.setFechaIngreso(e_fechaingreso);
 
-                    c.modificar();
+                    e.modificar();
 
                     cout << "" << endl;
                     system("pause");
@@ -241,14 +275,15 @@ int main()
                     system("cls");
 
 
-                    cout << "\n\n\t\t\tELIMINAR PUESTO INGRESADO" << endl;
-                    cout << "\t\t\t-------------------------" << endl << endl;
+                    cout << "\n\n\t\t\tELIMINAR EMPLEADO REGISTRADO" << endl;
+                    cout << "\t\t\t----------------------------" << endl << endl;
 
-                    cout << "\n\tIngrese ID que desea eliminar:          "; cin >> id_puesto;
+                    cout << "\n\tIngrese ID del empleado que desea eliminar:          "; cin >> id_empleado;
                     cout << "" << endl;
 
-                    Puesto c = Puesto(id_puesto, puesto);
-                    c.eliminar();
+                    Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
+                    e.eliminar();
+                    
 
                     cout << "" << endl;
                     system("pause");
