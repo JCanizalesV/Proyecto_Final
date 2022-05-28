@@ -51,7 +51,7 @@ public:
 		if (cn.getConectar()) {
 			string g = to_string(genero);
 			string idcl = to_string(idCliente);
-			string insert = "INSERT INTO `proyecto final super mercado`.Clientes(nombres,apellidos,nit,genero,telefono,correo_electronico,fechaingreso)VALUES('" + nombre + "','" + apellido + "','" + nit + "','" + g + "','" + telefono + "','" + correo_electronico + "','" + fechaingreso + "');";
+			string insert = "INSERT INTO `proyecto final super mercado`.Clientes(nombres,apellidos,nit,genero,telefono,correo_electronico,fechaingreso)VALUES('" + nombre + "','" + apellido + "','" + nit + "'," + g + ",'" + telefono + "','" + correo_electronico + "','" + fechaingreso + "');";
 			const char* i = insert.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
@@ -77,7 +77,7 @@ public:
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "SELECT * FROM `Proyecto Final Super Mercado`.Clientes";
+			string consulta = "SELECT idCliente, nombres, apellidos, NIT, if(genero= 1, 'Masculino', 'Femenino') as genero, telefono, correo_electronico, fechaingreso FROM `proyecto final super mercado`.clientes;";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
