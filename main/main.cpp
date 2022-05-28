@@ -4,6 +4,7 @@
 #include "Empleado.h"
 #include "Marca.h"
 #include "Proveedor.h"
+#include "Producto.h"
 #include "Cliente.h"
 
 
@@ -26,6 +27,11 @@ int main()
     //PROVEEDORES
     string proveedor, nit_p, direccion_p, telefono_p;
     int id_proveedor = 0;
+
+    //PRODUCTOS
+    string producto, descripcion, imagen, prod_fechaingreso;
+    int id_productos = 0, existencias = 0; // id_marca foranea
+    double precio_costo = 0, precio_venta = 0;
 
     //CLIENTES
     string c_nombres, c_apellidos, c_nit, c_telefono, c_correo, c_fechaingreso;
@@ -521,16 +527,144 @@ int main()
         {
             system("cls");
 
-            cout << "------          REGRESANDO AL MENU PRINCIPAL           %%%%%%" << endl;
-            system("cls");
+            do
+            {
+                system("cls");
 
-            cout << "\n\n\t\t\tMENU MARCAS" << endl;
-            cout << "\t\t\t-----------" << endl << endl;
-            cout << "\n\t1. Registre nueva Marca" << endl;
-            cout << "\t2. Mostrar Marcas disponibles" << endl;
-            cout << "\t3. Modificar o actualizar alguna Marca" << endl;
-            cout << "\t4. Eliminar una Marca registrada" << endl;
-            cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
+                cout << "\n\n\t\t\tMENU PRODUCTOS" << endl;
+                cout << "\t\t\t---------------" << endl << endl;
+                cout << "\n\t1. Ingresar un producto al supermercado" << endl;
+                cout << "\t2. Mostrar productos registrados" << endl;
+                cout << "\t3. Modificar o actualizar un producto registrado" << endl;
+                cout << "\t4. Eliminar un producto del supermercado" << endl;
+                cout << "" << endl;
+                cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
+
+                cout << "\n\tIngrese la opcion que desea realizar:       ";
+                cin >> menu;
+                cout << "" << endl;
+
+                if (menu == 1)
+                {
+                    system("cls");
+
+                    cout << "\n\n\t\t\tMARCAS REGISTRADAS" << endl;
+                    cout << "\t\t\t------------------" << endl << endl;
+
+                    Marca m = Marca();
+                    m.leer();
+
+                    cout << "" << endl;
+
+                    cout << "\n\n\t\t\tINGRESAR NUEVO PRODUCTO" << endl;
+                    cout << "\t\t\t-----------------------" << endl << endl;
+                    cout << "      Ingrese nuevo Producto                                             "; cin >> producto;
+                    cout << "      Ingrese ID Marca del producto:                                     "; cin >> id_marca;
+                    cout << "      Ingrese descripcion:                                               "; cin >> descripcion;
+                    cout << "      Ingrese URL del producto:                                          "; cin >> imagen;
+                    cout << "      Ingrese Precio Costo:                                              "; cin >> precio_costo;
+                    cout << "      Ingrese Precio Venta:                                              "; cin >> precio_venta;
+                    cout << "      Ingrese cantidad en existencia:                                    "; cin >> existencias;
+                    cout << "      Ingrese fecha de ingreso (AAAA-MM-DD):                             "; cin >> prod_fechaingreso;
+                    cout << "" << endl;
+
+                    Producto pro = Producto(id_productos, producto, id_marca, marca, descripcion, imagen, precio_costo, precio_venta, existencias, prod_fechaingreso);
+                    pro.crear();
+
+
+                    system("pause");
+                }
+
+                if (menu == 2)
+                {
+                    system("cls");
+
+
+                    cout << "\n\n\t\t\EMPLEADOS REGISTRADOS" << endl;
+                    cout << "\t\t---------------------" << endl << endl;
+
+                    Empleado e = Empleado();
+                    e.leer();
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+
+                if (menu == 3)
+                {
+                    system("cls");
+
+                    cout << "\n\n\t\t\tPUESTOS INGRESADOS" << endl;
+                    cout << "\t\t\t------------------" << endl << endl;
+
+                    Puesto c = Puesto();
+                    c.leer();
+
+                    /*cout << "\n\n\t\t\EMPLEADOS REGISTRADOS" << endl;
+                     cout << "\t\t---------------------" << endl << endl;
+
+                     Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
+                     e.leer();*/
+
+                    cout << "" << endl;
+
+                    cout << "\n\n\t\t\tMODIFICAR EMPLEADO REGISTRADO" << endl;
+                    cout << "\t\t\t-----------------------------" << endl << endl;
+
+                    cout << "      Ingrese ID del empleado que desea modificar:                       "; cin >> id_empleado;
+                    cout << "" << endl;
+                    cout << "      Ingrese nombres:                                                   "; cin >> e_nombres;
+                    cout << "      Ingrese apellidos:                                                 "; cin >> e_apellidos;
+                    cout << "      Ingrese direccion:                                                 "; cin >> e_direccion;
+                    cout << "      Ingrese telefono:                                                  "; cin >> e_telefono;
+                    cout << "      Ingrese DPI:                                                       "; cin >> e_dpi;
+                    cout << "      Ingrese genero (1 = Masculino, 0 = Femenino):                      "; cin >> e_genero;
+                    cout << "      Ingrese fecha de nacimiento (AAAA-MM-DD):                          "; cin >> e_fechanacimiento;
+                    cout << "      Ingrese el numero de puesto que ocupara:                           "; cin >> id_puesto;
+                    cout << "      Ingrese la fecha de inicio labores (AAAA-MM-DD):                   "; cin >> e_fechainicio;
+                    cout << "      Ingrese fecha de ingreso (AAAA-MM-DD):                             "; cin >> e_fechaingreso;
+                    cout << "" << endl;
+
+                    Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
+
+                    e.setID_empleado(id_empleado);
+                    e.setNombres(e_nombres);
+                    e.setApellidos(e_apellidos);
+                    e.setDireccion(e_direccion);
+                    e.setTelefono(e_telefono);
+                    e.setDPI(e_dpi);
+                    e.setGenero(e_genero);
+                    e.setFechaNacimiento(e_fechanacimiento);
+                    e.setPuesto(id_puesto);
+                    e.setFechaInicioLabores(e_fechainicio);
+                    e.setFechaIngreso(e_fechaingreso);
+
+                    e.modificar();
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+
+                if (menu == 4)
+                {
+                    system("cls");
+
+
+                    cout << "\n\n\t\t\tELIMINAR EMPLEADO REGISTRADO" << endl;
+                    cout << "\t\t\t----------------------------" << endl << endl;
+
+                    cout << "\n\tIngrese ID del empleado que desea eliminar:          "; cin >> id_empleado;
+                    cout << "" << endl;
+
+                    Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
+                    e.eliminar();
+
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+            } while (menu != 11);
+
 
             system("pause");
             cout << "" << endl;
