@@ -9,9 +9,9 @@
 using namespace std; 
 
 class Compra :
-	public Factura_C {
+	public Factura_C { //pendiente de cambio 
 	//atributos
-private: int idCompra = 0;
+private: idCompra = 0;
 public :
 
 	Compra() {
@@ -60,6 +60,87 @@ public :
 			cout << "Error en la conexion" << endl;
 		}
 		cn.cerrar_conexion();
+	}
+
+	void leer() {
+		int q_estado;
+		ConexionBD cn = ConexionBD();
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string consulta = "";
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				while (fila = mysql_fetch_row(resultado)) {
+					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] <<endl;
+				}
+			}
+			else {
+				cout << "Error al ingresar informacion" << endl;
+			}
+		}
+		else {
+			cout << "Error en la conexion" << endl;
+		}
+		cn.cerrar_conexion();
+
+	}
+
+
+	void leer2() {
+		int q_estado;
+		ConexionBD cn = ConexionBD();
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string consulta = "SELECT * FROM `proyecto final super mercado`.compras;
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				while (fila = mysql_fetch_row(resultado)) {
+					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << endl;
+				}
+			}
+			else {
+				cout << "Error al ingresar informacion" << endl;
+			}
+		}
+		else {
+			cout << "Error en la conexion" << endl;
+		}
+		cn.cerrar_conexion();
+
+	}
+
+
+
+
+	void eliminar() {
+		int q_estado;
+		ConexionBD cn = ConexionBD();
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string id = to_string(idCompra);
+			string eliminar = "DELETE from `proyecto final super mercado`.compras WHERE idCompra = " + id + ";";
+			const char* i = eliminar.c_str();
+			q_estado = mysql_query(cn.getConectar(), i);
+			if (!q_estado) {
+				cout << "Se ha eliminado con exito" << endl;
+			}
+			else {
+				cout << "Error al ingresar informacion" << endl;
+			}
+		}
+		else {
+			cout << "Error en la conexion" << endl;
+		}
+		cn.cerrar_conexion();
+
 	}
 
 
