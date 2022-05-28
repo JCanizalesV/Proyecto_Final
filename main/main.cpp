@@ -705,7 +705,17 @@ int main()
                             system("cls");
 
 
+                            cout << "\n\n\t\t\PROVEEDORES REGISTRADOS" << endl;
+                            cout << "\t\t-----------------------" << endl << endl;
+
+                            Proveedor p = Proveedor();
+                            p.mostrar();
+                            cout << "" << endl;
+                            cout << "" << endl;
+
+
                             cout << "BIENVENIDO AL SISTEMA DE PRECOMPRA" << endl; 
+                            cout << "" << endl;
 
                             cout << "Ingrese Numero de Orden:                         "; cin >> orden_c;
                             cout << "Ingrese ID de Proveedor:                         "; cin >> id_proveedor;
@@ -728,8 +738,18 @@ int main()
                                 Compra c = Compra();
                                 c.leer2();
                                 cout << "" << endl;
+                                cout << "" << endl;
+
+                                cout << "\n\n\t\t\PRODUCTOS DISPONIBLES" << endl;
+                                cout << "\t\t---------------------" << endl << endl;
+
+                                Producto pro = Producto(id_productos, producto, id_marca, marca, descripcion, imagen, precio_costo, precio_venta, existencias, prod_fechaingreso);
+                                pro.leer();
+                                cout << "" << endl;
+                                cout << "" << endl;
 
                                 cout << "SU PRECOMPRA HA SIDO INGRESADO CON EXITO, CONTINUE INGRESANDO SUS DATOS" << endl;
+                                cout << "" << endl;
 
                                 cout << "Confirme su ID de Compra:                               "; cin >> idcompras_c;
                                 cout << "Ingrese el ID del Producto que desea comprar:           "; cin >> id_productos;
@@ -749,8 +769,16 @@ int main()
                             {
                                 system("cls");
 
+                                cout << "SU ID DE COMPRA ES:     ";
+                               // Compra c = Compra(idcompras_c, orden_c, id_proveedor, fecha_orden_c, fechaingreso_c);
+                                c.leer2();
+                                cout << "" << endl;
+                                cout << "" << endl;
                                 
-                                cout << "Su Compra anterior ha sido cancelada con exito";
+                                cout << "Para cancelar su Compra confirme su ID de Compra:    "; cin >> idcompras_c;
+
+                                Compra c = Compra(idcompras_c, orden_c, id_proveedor, fecha_orden_c, fechaingreso_c);
+                                c.eliminar();
                                 cout << "" << endl;
                                 cout << "" << endl;
 
@@ -786,52 +814,6 @@ int main()
                 {
                     system("cls");
 
-                    cout << "\n\n\t\t\tPUESTOS INGRESADOS" << endl;
-                    cout << "\t\t\t------------------" << endl << endl;
-
-                    Puesto c = Puesto();
-                    c.leer();
-
-                    /*cout << "\n\n\t\t\EMPLEADOS REGISTRADOS" << endl;
-                     cout << "\t\t---------------------" << endl << endl;
-
-                     Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
-                     e.leer();*/
-
-                    cout << "" << endl;
-
-                    cout << "\n\n\t\t\tMODIFICAR EMPLEADO REGISTRADO" << endl;
-                    cout << "\t\t\t-----------------------------" << endl << endl;
-
-                    cout << "      Ingrese ID del empleado que desea modificar:                       "; cin >> id_empleado;
-                    cout << "" << endl;
-                    cout << "      Ingrese nombres:                                                   "; cin >> e_nombres;
-                    cout << "      Ingrese apellidos:                                                 "; cin >> e_apellidos;
-                    cout << "      Ingrese direccion:                                                 "; cin >> e_direccion;
-                    cout << "      Ingrese telefono:                                                  "; cin >> e_telefono;
-                    cout << "      Ingrese DPI:                                                       "; cin >> e_dpi;
-                    cout << "      Ingrese genero (1 = Masculino, 0 = Femenino):                      "; cin >> e_genero;
-                    cout << "      Ingrese fecha de nacimiento (AAAA-MM-DD):                          "; cin >> e_fechanacimiento;
-                    cout << "      Ingrese el numero de puesto que ocupara:                           "; cin >> id_puesto;
-                    cout << "      Ingrese la fecha de inicio labores (AAAA-MM-DD):                   "; cin >> e_fechainicio;
-                    cout << "      Ingrese fecha de ingreso (AAAA-MM-DD):                             "; cin >> e_fechaingreso;
-                    cout << "" << endl;
-
-                    Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
-
-                    e.setID_empleado(id_empleado);
-                    e.setNombres(e_nombres);
-                    e.setApellidos(e_apellidos);
-                    e.setDireccion(e_direccion);
-                    e.setTelefono(e_telefono);
-                    e.setDPI(e_dpi);
-                    e.setGenero(e_genero);
-                    e.setFechaNacimiento(e_fechanacimiento);
-                    e.setPuesto(id_puesto);
-                    e.setFechaInicioLabores(e_fechainicio);
-                    e.setFechaIngreso(e_fechaingreso);
-
-                    e.modificar();
 
                     cout << "" << endl;
                     system("pause");
@@ -842,15 +824,14 @@ int main()
                     system("cls");
 
 
-                    cout << "\n\n\t\t\tELIMINAR EMPLEADO REGISTRADO" << endl;
-                    cout << "\t\t\t----------------------------" << endl << endl;
+                    cout << "\n\n\t\t\tELIMINAR COMPRA REGISTRADA" << endl;
+                    cout << "\t\t\t---------------------------" << endl << endl;
 
-                    cout << "\n\tIngrese ID del empleado que desea eliminar:          "; cin >> menu_dos;
+                    cout << "\n\tIngrese ID de la compra que desea eliminar:          "; cin >> idcompradetalle;
                     cout << "" << endl;
 
-                    Empleado e = Empleado(id_empleado, e_nombres, e_apellidos, e_direccion, e_telefono, e_dpi, e_genero, e_fechanacimiento, id_puesto, puesto, e_fechainicio, e_fechaingreso);
-                    e.eliminar();
-
+                    Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
+                    cd.eliminar();
 
                     cout << "" << endl;
                     system("pause");

@@ -132,7 +132,8 @@ public :
 			const char* i = eliminar.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
-				cout << "Se ha eliminado con exito" << endl;
+				cout << "" << endl;
+				cout << "SU COMPRA HA SIDO CANCELADA EXITOSAMENTE..." << endl;
 			}
 			else {
 				cout << "Error al ingresar informacion" << endl;
