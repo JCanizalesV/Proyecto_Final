@@ -103,7 +103,15 @@ public:
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << endl;
+					cout << "" << endl;
+					cout << "ID Compra:                    " << fila[0] << endl;
+					cout << "No.de Orden:                  " << fila[1] << endl;
+					cout << "Proveedor:                    " << fila[2] << endl;
+					cout << "Producto:                     " << fila[3] << endl;
+					cout << "Cantidad:                     " << fila[4] << endl; 
+					cout << "Precio Costo Unitario:        " << fila[5] << endl;
+					cout << "Fecha de Orden:               " << fila[6] << endl;
+					cout << "Fecha de Ingreso:             " << fila[7] << endl;
 				}
 			}
 			else {
