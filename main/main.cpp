@@ -731,7 +731,7 @@ int main()
 
                             if (menu_compra == 'Y')
                             {
-                               
+
                                 system("cls");
 
                                 cout << "SU ID DE COMPRA ES:     ";
@@ -758,7 +758,18 @@ int main()
 
                                 Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
                                 cd.crear();
+                                system("pause");
 
+                                system("cls");
+
+
+                                cout << "\n\n\t\t\COMPRA EXITOSAMENTE REGISTRADA" << endl;
+                                cout << "\t\t------------------------------" << endl << endl;
+
+                                //Compra_Detalle cd = Compra_Detalle();
+                                cd.leerd();
+                                cout << "" << endl;
+                                cout << "" << endl;
 
                                 system("pause");
 
