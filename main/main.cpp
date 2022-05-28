@@ -5,6 +5,8 @@
 #include "Marca.h"
 #include "Proveedor.h"
 #include "Producto.h"
+#include "Compra.h"
+#include "Compra_Detalle.h"
 #include "Cliente.h"
 
 
@@ -36,7 +38,12 @@ int main()
     //COMPRAS
 
     string compras_c, direccion_c, fecha_orden_c, fechaingreso_c;
-    int idcompras_c, orden_c = 0;
+    int idcompras_c = 0, orden_c = 0;
+
+    //COMPRAS DETALLES
+    string compra_detalle;
+    int idcompradetalle = 0, cantidad_detalle = 0;
+    double precio_unitario_d = 0;
 
     //CLIENTES
     string c_nombres, c_apellidos, c_nit, c_telefono, c_correo, c_fechaingreso;
@@ -697,7 +704,7 @@ int main()
                         {
                             system("cls");
 
-                            cout << "BIENVENIDO AL SISTEMA DE COMPRA" << endl; 
+                            cout << "BIENVENIDO AL SISTEMA DE PRECOMPRA" << endl; 
 
                             cout << "Ingrese Numero de Orden:                         "; cin >> orden_c;
                             cout << "Ingrese ID de Proveedor:                         "; cin >> id_proveedor;
@@ -705,11 +712,26 @@ int main()
                             cout << "Ingrese Fecha de Ingreso(AAAA-MM-DD):            "; cin >> fechaingreso_c;
 
                             cout << "Si la datos ingresados son correctos presione Y, si desea cancelar la compra presione N:   "; cin >> menu_compra;
+                            Compra c = Compra(idcompras_c, orden_c, id_proveedor, fecha_orden_c, fechaingreso_c);
+                            c.crear();
+
 
                             if (menu_compra == 'Y')
                             {
+                               
+                                system("cls");
 
-                                cout << "su id compra anterior es :";
+                                cout << "Su ID de Sompra es:     " << endl;
+
+                                cout << "SU PRECOMPRA HA SIDO INGRESADO CON EXITO, CONTINUE INGRESANDO SUS DATOS" << endl;
+
+                                cout << "Confirme su ID de Compra:                                      "; cin >> idcompras_c;
+                                cout << "Ingrese el ID del Producto que desea comprar:                  "; cin >> id_productos;
+                                cout << "Ingrese la Cantidad que desea facturar:                        "; cin >> cantidad_detalle;
+                                cout << "Ingrese el Precio Costo del producto:                          "; cin >> precio_unitario_d;
+
+                                Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
+                                cd.crear();
 
                             }
 
@@ -721,9 +743,6 @@ int main()
 
                             }
 
-                           // cout << "Su Pre-Compra se ha creado con exito" << endl;
-                            //cout << "" << endl;
-                         
 
                             system("pause");
                         }
@@ -731,32 +750,7 @@ int main()
                     } while (menu_dos != 12);
 
 
-                  /*  do
-                    {
-                        cout << "Si los datos son correctos ingrese Y o ingrese N para cancelar la compra:      "; cin >> menu_dos;
-
-                        {
-                            if (menu_dos == 13)
-
-                            system("cls");
-
-                            cout << "Su Pre-Compra se ha creado con exito" << endl;
-                            cout << "" << endl;
-                            
-                            cout << "Favor confirme ID compra:     "; cin >> idcompras_c;
-                            cout << "" << endl;
-
-                        }
-
-                
-                            system("cls");
-
-                            cout << "Su Compra ha sido cancelada con exito" << endl;
-
-                        
-                    } while (menu_dos == 15);*/
-                  
-           
+                       
                 }
 
                 if (menu == 2)

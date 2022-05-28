@@ -9,9 +9,9 @@
 using namespace std; 
 
 class Compra :
-	public Factura_C { //pendiente de cambio 
+	public Factura_C {
 	//atributos
-private: idCompra = 0;
+private: int idCompra = 0;
 public :
 
 	Compra() {

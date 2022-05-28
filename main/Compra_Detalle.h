@@ -12,7 +12,7 @@ using namespace std;
 class Compra_Detalle :
 	public Factura_CD {
 	// atributos
-private: int idCompra_detalle;
+private: int idCompra_detalle = 0;
 	   // constructor
 public:
 	Compra_Detalle() {
@@ -33,7 +33,7 @@ public:
 	int getidCompra() { return idCompra; }
 	int getidProducto() { return idProducto; }
 	int getidCantidad() { return cantidad; }
-	int getidPrecioUnitario() { return precio_costo_unitario; }
+	double getidPrecioUnitario() { return precio_costo_unitario; }
 
 
 	// metodo
