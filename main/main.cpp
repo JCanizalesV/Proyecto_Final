@@ -3,6 +3,7 @@
 #include "Puesto.h"
 #include "Empleado.h"
 #include "Marca.h"
+#include "Proveedor.h"
 
 
 using namespace std;
@@ -20,6 +21,10 @@ int main()
     //EMPLEADOS
     string e_nombres, e_apellidos, e_direccion, e_dpi, e_fechanacimiento, e_fechainicio, e_fechaingreso;
     int id_empleado = 0, e_telefono, e_genero;
+
+    //PROVEEDORES
+    string proveedor, nit_p, direccion_p, telefono_p;
+    int id_proveedor = 0;
 
 
     int menu;
@@ -298,6 +303,109 @@ int main()
         if (menu == 3)
         {
             system("cls");
+
+            do
+            {
+                system("cls");
+
+                cout << "\n\n\t\t\tMENU EMPLEADOS" << endl;
+                cout << "\t\t\t--------------" << endl << endl;
+                cout << "\n\t1. Ingresar un nuevo proveedor al supermercado" << endl;
+                cout << "\t2. Mostrar proveedores del supermercado" << endl;
+                cout << "\t3. Modificar o actualizar un un proveedor registrado" << endl;
+                cout << "\t4. Eliminar un proveedor registrado" << endl;
+                cout << "" << endl;
+                cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
+
+                cout << "\n\tIngrese la opcion que desea realizar:       ";
+                cin >> menu;
+                cout << "" << endl;
+
+                if (menu == 1)
+                {
+                    system("cls");
+
+
+                    cout << "\n\n\t\t\tINGRESAR NUEVO PROVEEDOR" << endl;
+                    cout << "\t\t\t------------------------" << endl << endl;
+                    cout << "      Ingrese nuevo proveedor a la empresa:                     "; cin >> proveedor;
+                    cout << "      Ingrese NIT:                                              "; cin >> nit_p;
+                    cout << "      Ingrese direccion:                                        "; cin >> direccion_p;
+                    cout << "      Ingrese telefono:                                         "; cin >> telefono_p;
+                    cout << "" << endl;
+
+                    Proveedor p = Proveedor(id_proveedor, proveedor, nit_p, direccion_p, telefono_p);
+                    p.crear();
+
+                    system("pause");
+                }
+
+                if (menu == 2)
+                {
+                    system("cls");
+
+
+                    cout << "\n\n\t\t\PROVEEDORES REGISTRADOS" << endl;
+                    cout << "\t\t-----------------------" << endl << endl;
+
+                    Proveedor p = Proveedor();
+                    p.mostrar();
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+
+                if (menu == 3)
+                {
+                    system("cls");
+
+                    cout << "\n\n\t\t\PROVEEDORES REGISTRADOS" << endl;
+                    cout << "\t\t-----------------------" << endl << endl;
+
+                    Proveedor p = Proveedor();
+                    p.mostrar();
+
+                    cout << "" << endl;
+
+                    cout << "\n\n\t\t\tMODIFICAR PROVEEDOR REGISTRADO" << endl;
+                    cout << "\t\t\t------------------------------" << endl << endl;
+                    
+                    cout << "      Ingrese ID del proveedor que desea modificar:             "; cin >> id_proveedor;
+                    cout << "" << endl;
+                    
+                    cout << "      Actualice proveedor registrado:                           "; cin >> proveedor;
+                    cout << "      Ingrese NIT:                                              "; cin >> nit_p;
+                    cout << "      Ingrese direccion:                                        "; cin >> direccion_p;
+                    cout << "      Ingrese telefono:                                         "; cin >> telefono_p;
+                    cout << "" << endl;
+
+                    
+                  //  Proveedor p = Proveedor(id_proveedor, proveedor, nit_p, direccion_p, telefono_p);
+                    p.modificar();
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+
+                if (menu == 4)
+                {
+                    system("cls");
+
+
+                    cout << "\n\n\t\t\tELIMINAR PROVEEDOR REGISTRADO" << endl;
+                    cout << "\t\t\t-----------------------------" << endl << endl;
+
+                    cout << "\n\tIngrese ID del proveedor registrado que desea eliminar:          "; cin >> id_proveedor;
+                    cout << "" << endl;
+
+                    Proveedor p = Proveedor(id_proveedor, proveedor, nit_p, direccion_p, telefono_p);
+                    p.borrar();
+
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+            } while (menu != 11);
 
 
             cout << "" << endl;

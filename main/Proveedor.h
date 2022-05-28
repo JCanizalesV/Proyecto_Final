@@ -66,7 +66,8 @@ public:
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string idProve = to_string(idProveedor);
-			string actualizar = "UPDATE `proyecto final super mercado` SET proveedor = '" + proveedor + "', nit = '" + nit + "', direccion = '" + direccion + "', telefono = " + telefono + "' WHERE idProveedor = " + idProve + "";
+			string actualizar = "UPDATE `proyecto final super mercado`.proveedores SET proveedor = '" + proveedor + "', nit = '" + nit + "', direccion = '" + direccion + "', telefono = '" + telefono + "' WHERE idProveedor = " + idProve + ";";
+			//UPDATE `proyecto final super mercado`.`proveedores` SET `proveedor` = 'SON', `nit` = '21202929-1', `direccion` = 'GUATEEMALA', `telefono` = '2' WHERE (`idProveedor` = '1');
 			const char* i = actualizar.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
@@ -93,11 +94,11 @@ public:
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string idProve = to_string(idProveedor);
-			string delet = "DELETE FROM `proyecto final super mercado`.Proveedores WHERE idProveedor = " + idProve + "";
+			string delet = "DELETE FROM `proyecto final super mercado`.proveedores WHERE idProveedor = " + idProve + "";
 			const char* i = delet.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
-				cout << " Dato borrado " << endl;
+				cout << " Dato elimado exitosamente " << endl;
 			}
 			else {
 				cout << "Error al borrar" << endl;
@@ -119,14 +120,14 @@ public:
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string leer = "select * `proyecto final super mercado`.Proveedores ";
+			string leer = "SELECT * FROM `proyecto final super mercado`.proveedores;";
 			const char* c = leer.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << "," << fila[1] << "," << fila[2] << "," << fila[3] << fila[4] << endl;
+					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << endl;
 				}
 			}
 			else {
