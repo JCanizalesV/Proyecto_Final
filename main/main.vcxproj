@@ -151,6 +151,8 @@
     <ClCompile Include="Empresa.cpp" />
     <ClCompile Include="Factura_C.cpp" />
     <ClCompile Include="Factura_CD.cpp" />
+    <ClCompile Include="Factura_V.cpp" />
+    <ClCompile Include="Factura_VD.cpp" />
     <ClCompile Include="Funcion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Marca.cpp" />
@@ -159,6 +161,8 @@
     <ClCompile Include="Producto.cpp" />
     <ClCompile Include="Proveedor.cpp" />
     <ClCompile Include="Puesto.cpp" />
+    <ClCompile Include="Venta.cpp" />
+    <ClCompile Include="Venta_detalle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Articulo.h" />
@@ -171,6 +175,8 @@
     <ClInclude Include="Empresa.h" />
     <ClInclude Include="Factura_C.h" />
     <ClInclude Include="Factura_CD.h" />
+    <ClInclude Include="Factura_V.h" />
+    <ClInclude Include="Factura_VD.h" />
     <ClInclude Include="Funcion.h" />
     <ClInclude Include="Marca.h" />
     <ClInclude Include="Persona_C.h" />
@@ -178,6 +184,8 @@
     <ClInclude Include="Producto.h" />
     <ClInclude Include="Proveedor.h" />
     <ClInclude Include="Puesto.h" />
+    <ClInclude Include="Venta.h" />
+    <ClInclude Include="Venta_detalle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
