@@ -104,7 +104,8 @@ public:
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string id = to_string(idCliente);
-			string eliminar = "DELETE from `proyecto final super mercado`.Clientes WHERE idEmpleado = " + id + ";";
+			string eliminar = "DELETE from `proyecto final super mercado`.clientes WHERE idCliente = " + id + ";";
+			//string eliminar = "DELETE from `proyecto final super mercado`.empleados WHERE idEmpleado = " + id + ";";
 			const char* i = eliminar.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
@@ -129,7 +130,9 @@ public:
 		if (cn.getConectar()) {
 			string id = to_string(idCliente);
 			string g = to_string(genero);
-			string actualizar = "UPDATE estudiantes.Clientes SET nombres='" + nombre + "',apellidos='" + apellido + "',nit='" + nit + "',genero=" + g + ",telefono='" + telefono + "',correo_elecetronico=" + correo_electronico + ",fechaingreso='" + fechaingreso + ";";
+			string actualizar = "UPDATE `proyecto final super mercado`.clientes SET nombres='" + nombre + "',apellidos='" + apellido + "',nit='" + nit + "',genero=" + g + ",telefono='" + telefono + "',correo_electronico='" + correo_electronico + "',fechaingreso='" + fechaingreso + "' WHERE idCliente= "+ id +"; ";
+			//UPDATE `proyecto final super mercado`.`clientes` SET `nombres` = 'JUADN', `apellidos` = 'PONDCE', `NIT` = '3832722', `genero` = '0', `telefono` = '222', `correo_electronico` = 'j.ponce@2gmail.com', `fechaingreso` = '2021-03-13 00:00:00' WHERE (`idCliente` = '1');
+			//string actualizar = "UPDATE `proyecto final super mercado`.empleados SET nombres='" + nombre + "',apellidos='" + apellido + "',direccion='" + direccion + "',telefono = " + t + ",DPI='" + DPI + "',genero=" + g + ",fecha_nacimiento='" + fecha_nacimiento + "',idPuesto=" + echaingreso + "'  WHERE idEmpleado =" + id + ";";
 			const char* i = actualizar.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
