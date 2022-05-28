@@ -69,7 +69,7 @@ public :
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "";
+			string consulta = "SELECT * FROM `proyecto final super mercado`.compras;";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
@@ -97,13 +97,13 @@ public :
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "SELECT * FROM `proyecto final super mercado`.compras;";
+			string consulta = "SELECT MAX(idCompra) as IDCOMPRA FROM  `proyecto final super mercado`.compras;";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << endl;
+					cout << fila[0] << "  " << endl;
 				}
 			}
 			else {

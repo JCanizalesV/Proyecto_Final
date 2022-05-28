@@ -704,6 +704,7 @@ int main()
                         {
                             system("cls");
 
+
                             cout << "BIENVENIDO AL SISTEMA DE PRECOMPRA" << endl; 
 
                             cout << "Ingrese Numero de Orden:                         "; cin >> orden_c;
@@ -721,14 +722,17 @@ int main()
                                
                                 system("cls");
 
-                                cout << "Su ID de Sompra es:     " << endl;
+                                cout << "SU ID DE COMPRA ES:     ";
+                                Compra c = Compra();
+                                c.leer2();
+                                cout << "" << endl;
 
                                 cout << "SU PRECOMPRA HA SIDO INGRESADO CON EXITO, CONTINUE INGRESANDO SUS DATOS" << endl;
 
-                                cout << "Confirme su ID de Compra:                                      "; cin >> idcompras_c;
-                                cout << "Ingrese el ID del Producto que desea comprar:                  "; cin >> id_productos;
-                                cout << "Ingrese la Cantidad que desea facturar:                        "; cin >> cantidad_detalle;
-                                cout << "Ingrese el Precio Costo del producto:                          "; cin >> precio_unitario_d;
+                                cout << "Confirme su ID de Compra:                               "; cin >> idcompras_c;
+                                cout << "Ingrese el ID del Producto que desea comprar:           "; cin >> id_productos;
+                                cout << "Ingrese la Cantidad que desea facturar:                 "; cin >> cantidad_detalle;
+                                cout << "Ingrese el Precio Costo del producto:                   "; cin >> precio_unitario_d;
 
                                 Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
                                 cd.crear();
