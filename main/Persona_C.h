@@ -9,15 +9,17 @@ using namespace std;
 class Persona_C {
 	//atributos 
 protected:
-	string nombres, apellidos nit, telefono, correo_electronico, fechaingreso
-		int idCLiente = 0, genero = 0;
+	string nombre, apellido, telefono, correo_electronico, fechaingreso;
+		int idCliente = 0, genero = 0;
 	//Constructor
 protected:
-	Persona_C(int idc, string nom, string ape, string n, int gen, string tel, string correo, string fe_in) {
+
+	Persona_C() {
+	}
+	Persona_C(int idc, string nom, string ape, int gen, string tel, string correo, string fe_in) {
 		idCliente = idc;
-		nombres = nom;
-		apellidos = ape;
-		nit = n;
+		nombre = nom;
+		apellido = ape;
 		genero = gen;
 		telefono = tel;
 		correo_electronico = correo;

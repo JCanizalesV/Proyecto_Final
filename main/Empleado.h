@@ -141,9 +141,6 @@ class Empleado :
 		  string g = to_string(genero);
 		  string p = to_string(id_puesto);
 		  string actualizar = "UPDATE `proyecto final super mercado`.empleados SET nombres='" + nombre + "',apellidos='" + apellido + "',direccion='" + direccion + "',telefono = " + t + ",DPI='" + DPI + "',genero=" + g + ",fecha_nacimiento='" + fecha_nacimiento + "',idPuesto=" + p +",fecha_inicio_labores='" + fecha_inicio_labores + "',fechaingreso='" + fechaingreso + "'  WHERE idEmpleado =" + id + ";";
-		  //				   UPDATE `proyecto final super mercado`.`empleados` SET `nombres` = '', `` = '', `direccion` = 'F', `telefono` = '39404', `DPI` = '1232', `genero` = '0', `fecha_nacimiento` = '2000-01-02', `idPuesto` = '1', `fecha_inicio_labores` = '2021-02-13', `fechaingreso` = '2021-03-11 00:00:00' WHERE (`idEmpleado` = '1');
-		  //string actualizar = "UPDATE `proyecto final super mercado`.empleados SET nombres='" + nombre + "',apellidos='" + apellido + "',direccion='" + direccion + "',telefono = " + t + ",DPI='" + DPI + "',genero=" + g + ",fecha_nacimiento='" + fecha_nacimiento + "',idPuesto=" + p +",fecha_incio_labores='" + fecha_inicio_labores + "',fechaingreso='" + fechaingreso + "'  WHERE idEmpleado =" + id + ";";
-
 		  const char* i = actualizar.c_str();
 		  q_estado = mysql_query(cn.getConectar(), i);
 		  if (!q_estado) {

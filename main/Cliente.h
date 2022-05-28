@@ -7,16 +7,17 @@
 
 using namespace std;
 
-class Clientes :
+class Cliente :
 	public Persona_C {
 	//atributos
-private: int idCliente = 0;
+private: string nit;
 
 public:
-	Clientes() {
+	
+	Cliente() {
 	}
-	Clientes(int idc, string nom, string ape, string n, int gen, string tel, string correo, string fe_in) : Persona_C(nom, ape, n, gen, tel, correo, fe_in) {
-		idCliente = idc;
+	Cliente(int idc, string nom, string ape, string n, int gen, string tel, string correo, string fe_in) : Persona_C(idc,nom,ape,gen,tel,correo,fe_in){
+		nit = n;
 	}
 
 	//metodos
@@ -37,8 +38,8 @@ public:
 	string getNIT() { return nit; }
 	int getgenero() { return genero; }
 	string gettelefono() { return telefono; }
-	string getcorreo_electronico() { return = correo_electronico; }
-	string getfechaingreso() { return = fechaingreso; }
+	string getcorreo_electronico() { return  correo_electronico; }
+	string getfechaingreso() { return fechaingreso; }
 
 
 	//metodo
@@ -81,9 +82,8 @@ public:
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
-				cout << "-----------------EMPLEADOS--------------------" << endl;
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << " << endl;
+					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << endl;
 				}
 			}
 			else {
@@ -103,7 +103,7 @@ public:
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string id = to_string(idcliente);
+			string id = to_string(idCliente);
 			string eliminar = "DELETE from `proyecto final super mercado`.Clientes WHERE idEmpleado = " + id + ";";
 			const char* i = eliminar.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
