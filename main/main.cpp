@@ -772,11 +772,11 @@ int main()
                     system("cls");
 
 
-                    cout << "\n\n\t\t\EMPLEADOS REGISTRADOS" << endl;
+                    cout << "\n\n\t\t\COMPRAS REGISTRADAS" << endl;
                     cout << "\t\t---------------------" << endl << endl;
 
-                    Empleado e = Empleado();
-                    e.leer();
+                    Compra_Detalle cd = Compra_Detalle();
+                    cd.leer();
 
                     cout << "" << endl;
                     system("pause");
