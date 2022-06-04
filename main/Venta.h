@@ -11,11 +11,11 @@ class Venta :
 	public Factura_V {
 	//atributos
 private: int idVenta = 0;
-public: 
+public:
 
 	Venta() {
 	}
-	Venta(int idV,int nfact, string ser, string fefact, int idc, int idEm, , string fein) {
+	Venta(int idV, int nfact, string ser, string fefact, int idc, int idEm, , string fein) {
 		idVenta = idV;
 	}
 
@@ -50,7 +50,7 @@ public:
 			string nof = to_string(nofactura);
 			string idC = to_string(idCliente);
 			string idE = to_string(idEmpleado);
-			string insert = "INSERT INTO `proyecto final super mercado`.ventas(nofactura, serie, fechafactura,idCliente, idEmpleado, fechaingreso)VALUES(" + nof + ",'" + serie + "','" + fechafactura + "',"+ idC + "," + idE + ",'" + fechaingreso + "' );";
+			string insert = "INSERT INTO `proyecto final super mercado`.ventas(nofactura, serie, fechafactura,idCliente, idEmpleado, fechaingreso)VALUES(" + nof + ",'" + serie + "','" + fechafactura + "'," + idC + "," + idE + ",'" + fechaingreso + "' );";
 			const char* i = insert.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {

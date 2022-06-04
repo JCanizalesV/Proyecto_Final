@@ -28,5 +28,4 @@ protected:
 	void modificar();
 	void eliminar();
 
-
 };
