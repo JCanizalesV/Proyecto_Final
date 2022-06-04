@@ -66,6 +66,7 @@ public:
 			cout << "Error en la conexion" << endl;
 		}
 		cn.cerrar_conexion();
+
 	}
 
 
