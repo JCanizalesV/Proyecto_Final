@@ -19,6 +19,7 @@ public:
 		idVenta = idV;
 	}
 
+	//se arregla venta	
 
 	//metodo
 

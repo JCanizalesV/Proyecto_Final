@@ -992,7 +992,7 @@ int main()
                 system("cls");
 
                 cout << "\n\n\t\t\tMENU VENTAS" << endl;
-                cout << "\t\t\t------------" << endl << endl;
+                cout << "\t\t\t-----------" << endl << endl;
                 cout << "\n\t1. Realizar nueva venta dentro del supermercado" << endl;
                 cout << "\t2. Mostrar base de ventas realizadas" << endl;
                 cout << "\t3. Modificar o actualizar ventas realizadas" << endl;
@@ -1030,9 +1030,11 @@ int main()
                             cout << "BIENVENIDO AL SISTEMA DE PREVENTA" << endl;
                             cout << "" << endl;
 
-                            cout << "Ingrese Numero de Factua:                         "; cin >> orden_c;
-                            cout << "Ingrese la Serie de la Venta:                     "; cin >> id_proveedor;
-                            cout << "Ingrese Fecha de Orden (AAAA-MM-DD):             "; cin >> fecha_orden_c;
+                            cout << "Ingrese Numero de Factua:                          "; cin >> orden_c;
+                            cout << "Ingrese la Serie de la Venta:                      "; cin >> id_proveedor;
+                            cout << "Ingrese Fecha de Factura (AAAA-MM-DD):             "; cin >> fecha_orden_c;
+                            cout << "Ingrese ID del Cliente                             "; cin >> id_clientes;
+                            cout << "Ingrese ID del Empleado                            "; cin >> id_empleado;
                             cout << "Ingrese Fecha de Ingreso(AAAA-MM-DD):            "; cin >> fechaingreso_c;
 
                       
@@ -1046,40 +1048,32 @@ int main()
 
                                 system("cls");
 
-                                cout << "SU ID DE COMPRA ES:     ";
-                                Compra c = Compra();
-                                c.leer2();
+                                cout << "SU ID DE VENTA ES:     ";
+                               
                                 cout << "" << endl;
                                 cout << "" << endl;
 
-                                cout << "\n\n\t\t\PRODUCTOS DISPONIBLES" << endl;
-                                cout << "\t\t---------------------" << endl << endl;
+                              
 
-                                Producto pro = Producto(id_productos, producto, id_marca, marca, descripcion, imagen, precio_costo, precio_venta, existencias, prod_fechaingreso);
-                                pro.leer2();
-                                cout << "" << endl;
+                                cout << "SU PREVENTA HA SIDO INGRESADA CON EXITO, CONTINUE INGRESANDO SUS DATOS" << endl;
                                 cout << "" << endl;
 
-                                cout << "SU PRECOMPRA HA SIDO INGRESADO CON EXITO, CONTINUE INGRESANDO SUS DATOS" << endl;
-                                cout << "" << endl;
-
-                                cout << "Confirme su ID de Compra:                               "; cin >> idcompras_c;
-                                cout << "Ingrese el ID del Producto que desea comprar:           "; cin >> id_productos;
-                                cout << "Ingrese la Cantidad que desea facturar:                 "; cin >> cantidad_detalle;
+                                cout << "Confirme su ID de Venta:                                "; cin >> idcompras_c;
+                                cout << "Ingrese el ID del Producto que desea vender:            "; cin >> id_productos;
+                                cout << "Ingrese la Cantidad que desea vender:                   "; cin >> cantidad_detalle;
                                 cout << "Ingrese el Precio Costo del producto:                   "; cin >> precio_unitario_d;
 
-                                Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
-                                cd.crear();
+                               // Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
+                               //cd.crear();
                                 system("pause");
 
                                 system("cls");
 
 
-                                cout << "\n\n\t\t\COMPRA EXITOSAMENTE REGISTRADA" << endl;
+                                cout << "\n\n\t\t\VENTA EXITOSAMENTE REGISTRADA" << endl;
                                 cout << "\t\t------------------------------" << endl << endl;
 
-                                //Compra_Detalle cd = Compra_Detalle();
-                                cd.leerd();
+                               
                                 cout << "" << endl;
                                 cout << "" << endl;
 
@@ -1093,8 +1087,7 @@ int main()
                                 system("cls");
 
                                 cout << "SU ID DE COMPRA ES:     ";
-                                // Compra c = Compra(idcompras_c, orden_c, id_proveedor, fecha_orden_c, fechaingreso_c);
-                                c.leer2();
+                                
                                 cout << "" << endl;
                                 cout << "" << endl;
 
