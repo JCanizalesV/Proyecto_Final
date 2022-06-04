@@ -15,7 +15,7 @@ public:
 
 	Venta() {
 	}
-	Venta(int idV,int nfact, string ser, string fefact, int idc, int idEm, , string fein) {
+	Venta(int idV,int nfact, string ser, string fefact, int idc, int idEm, string fein) {
 		idVenta = idV;
 	}
 
@@ -28,7 +28,7 @@ public:
 	void setserie(string ser) { serie = ser; }
 	void setfechafactura(string fefact) { fechafactura = fefact; }
 	void setidCliente(int idc) { idCliente = idc; }
-	void setidEmpleado(int idEm) { inEmpleado = idEm; }
+	void setidEmpleado(int idEm) { idEmpleado = idEm; }
 	void setfechaingreso(string fein) { fechaingreso = fein; }
 
 	//get (mostrar)

@@ -49,6 +49,15 @@ int main()
     string c_nombres, c_apellidos, c_nit, c_telefono, c_correo, c_fechaingreso;
     int id_clientes = 0, c_genero=0;
 
+    //VENTAS
+    string fecha_factura_v, fecha_ingreso_v;
+    int idventa, nofactura_v;
+    char serie;
+
+    //VENTAS DETALLE
+    int idventadeta, cantidad_det; 
+    double precio_unitario_det;
+
     int menu, menu_dos;
     char menu_compra;
 
@@ -978,8 +987,183 @@ int main()
         {
             system("cls");
 
-            cout << "4.------          ELIMINAR ESTUDIANTE           %%%%%%" << endl;
+            do
+            {
+                system("cls");
 
+                cout << "\n\n\t\t\tMENU VENTAS" << endl;
+                cout << "\t\t\t------------" << endl << endl;
+                cout << "\n\t1. Realizar nueva venta dentro del supermercado" << endl;
+                cout << "\t2. Mostrar base de ventas realizadas" << endl;
+                cout << "\t3. Modificar o actualizar ventas realizadas" << endl;
+                cout << "\t4. Eliminar una venta registrada" << endl;
+                cout << "" << endl;
+                cout << "\tPRESIONE 11 SALIR AL MENU PRINCIPAL" << endl;
+
+                cout << "\n\tIngrese la opcion que desea realizar:       ";
+                cin >> menu;
+                cout << "" << endl;
+
+                if (menu == 1)
+                {
+
+                    do
+                    {
+                        system("cls");
+
+                        cout << "\n\n\t\t\tVENTAS SUPERMERCADO" << endl;
+                        cout << "\t\t\t--------------------" << endl << endl;
+
+                        cout << "\n\t1. Realizar una Venta" << endl;
+                        cout << "\t12. Regresar al MENU VENTAS" << endl;
+                        cout << "" << endl;
+
+                        cout << "\n\tIngrese la opcion que desea realizar:       ";
+                        cin >> menu_dos;
+                        cout << "" << endl;
+
+                        if (menu_dos == 1)
+                        {
+                            system("cls");
+
+                         
+                            cout << "BIENVENIDO AL SISTEMA DE PREVENTA" << endl;
+                            cout << "" << endl;
+
+                            cout << "Ingrese Numero de Factua:                         "; cin >> orden_c;
+                            cout << "Ingrese la Serie de la Venta:                     "; cin >> id_proveedor;
+                            cout << "Ingrese Fecha de Orden (AAAA-MM-DD):             "; cin >> fecha_orden_c;
+                            cout << "Ingrese Fecha de Ingreso(AAAA-MM-DD):            "; cin >> fechaingreso_c;
+
+                      
+
+                            cout << "Si la datos ingresados son correctos presione Y, si desea cancelar la compra presione N:   "; cin >> menu_compra;
+
+
+
+                            if (menu_compra == 'Y')
+                            {
+
+                                system("cls");
+
+                                cout << "SU ID DE COMPRA ES:     ";
+                                Compra c = Compra();
+                                c.leer2();
+                                cout << "" << endl;
+                                cout << "" << endl;
+
+                                cout << "\n\n\t\t\PRODUCTOS DISPONIBLES" << endl;
+                                cout << "\t\t---------------------" << endl << endl;
+
+                                Producto pro = Producto(id_productos, producto, id_marca, marca, descripcion, imagen, precio_costo, precio_venta, existencias, prod_fechaingreso);
+                                pro.leer2();
+                                cout << "" << endl;
+                                cout << "" << endl;
+
+                                cout << "SU PRECOMPRA HA SIDO INGRESADO CON EXITO, CONTINUE INGRESANDO SUS DATOS" << endl;
+                                cout << "" << endl;
+
+                                cout << "Confirme su ID de Compra:                               "; cin >> idcompras_c;
+                                cout << "Ingrese el ID del Producto que desea comprar:           "; cin >> id_productos;
+                                cout << "Ingrese la Cantidad que desea facturar:                 "; cin >> cantidad_detalle;
+                                cout << "Ingrese el Precio Costo del producto:                   "; cin >> precio_unitario_d;
+
+                                Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
+                                cd.crear();
+                                system("pause");
+
+                                system("cls");
+
+
+                                cout << "\n\n\t\t\COMPRA EXITOSAMENTE REGISTRADA" << endl;
+                                cout << "\t\t------------------------------" << endl << endl;
+
+                                //Compra_Detalle cd = Compra_Detalle();
+                                cd.leerd();
+                                cout << "" << endl;
+                                cout << "" << endl;
+
+                                system("pause");
+
+                            }
+
+
+                            if (menu_compra == 'N')
+                            {
+                                system("cls");
+
+                                cout << "SU ID DE COMPRA ES:     ";
+                                // Compra c = Compra(idcompras_c, orden_c, id_proveedor, fecha_orden_c, fechaingreso_c);
+                                c.leer2();
+                                cout << "" << endl;
+                                cout << "" << endl;
+
+                                cout << "Para cancelar su Compra confirme su ID de Compra:    "; cin >> idcompras_c;
+
+                                Compra c = Compra(idcompras_c, orden_c, id_proveedor, fecha_orden_c, fechaingreso_c);
+                                c.eliminar();
+                                cout << "" << endl;
+                                cout << "" << endl;
+
+                                system("pause");
+
+                            }
+
+
+                        }
+
+                    } while (menu_dos != 12);
+
+
+
+                }
+
+                if (menu == 2)
+                {
+                    system("cls");
+
+
+                    cout << "\n\n\t\t\COMPRAS REGISTRADAS" << endl;
+                    cout << "\t\t---------------------" << endl << endl;
+
+                    Compra_Detalle cd = Compra_Detalle();
+                    cd.leer();
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+
+                if (menu == 3)
+                {
+                    system("cls");
+
+                    cout << "Ingrese Numero de Orden:                         "; cin >> orden_c;
+                    cout << "Ingrese ID de Proveedor:                         "; cin >> id_proveedor;
+                    cout << "Ingrese Fecha de Orden (AAAA-MM-DD):             "; cin >> fecha_orden_c;
+                    cout << "Ingrese Fecha de Ingreso(AAAA-MM-DD):            "; cin >> fechaingreso_c;
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+
+                if (menu == 4)
+                {
+                    system("cls");
+
+
+                    cout << "\n\n\t\t\tELIMINAR COMPRA REGISTRADA" << endl;
+                    cout << "\t\t\t---------------------------" << endl << endl;
+
+                    cout << "\n\tIngrese ID de la compra que desea eliminar:          "; cin >> idcompradetalle;
+                    cout << "" << endl;
+
+                    Compra_Detalle cd = Compra_Detalle(idcompradetalle, idcompras_c, id_productos, cantidad_detalle, precio_unitario_d);
+                    cd.eliminar();
+
+                    cout << "" << endl;
+                    system("pause");
+                }
+            } while (menu != 11);
 
             cout << "" << endl;
             system("pause");
