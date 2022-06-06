@@ -11,12 +11,14 @@ class Venta :
 	public Factura_V {
 	//atributos
 private: int idVenta = 0;
+	   string nitdetalle;
 public: 
 
 	Venta() {
 	}
-	Venta(int idV,int nfact, string ser, string fefact, int idc, int idEm, string fein) {
+	Venta(int idV,int nfact, string ser, string fefact, int idc, int idEm, string fein, string nitde) : Factura_V (nfact, ser, fefact, idc, idEm, fein) {
 		idVenta = idV;
+		nitdetalle = nitde;
 	}
 
 	//metodo
@@ -45,11 +47,11 @@ public:
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string id = to_string(idVenta);
-			string nof = to_string(nofactura);
-			string idC = to_string(idCliente);
-			string idE = to_string(idEmpleado);
-			string insert = "INSERT INTO `proyecto final super mercado`.ventas(nofactura, serie, fechafactura,idCliente, idEmpleado, fechaingreso)VALUES(" + nof + ",'" + serie + "','" + fechafactura + "',"+ idC + "," + idE + ",'" + fechaingreso + "' );";
+			string idvent = to_string(idVenta);
+			string nofact = to_string(nofactura);
+			string idClie = to_string(idCliente);
+			string idEmple = to_string(idEmpleado);
+			string insert = "INSERT INTO `proyecto final super mercado`.`ventas` (nofactura, serie, fechafactura, idCliente, idEmpleado, fechaingreso) VALUES (" + nofact + ",'" + serie + "','" + fechafactura + "'," + idClie + "," + idEmple + ",'" + fechaingreso + "');";
 			const char* i = insert.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
@@ -128,13 +130,67 @@ public:
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "SELECT NIT FROM `proyecto final super mercado`.clientes;";
+			string consulta = "SELECT idCliente FROM `proyecto final super mercado`.clientes WHERE NIT = '"+nitdetalle+"';";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 				while (fila = mysql_fetch_row(resultado)) {
 					cout << fila[0] << endl;
+				}
+			}
+			else {
+				cout << "Error al ingresar informacion" << endl;
+			}
+		}
+		else {
+			cout << "Error en la conexion" << endl;
+		}
+		cn.cerrar_conexion();
+
+	}
+
+	void nomape() {
+		int q_estado;
+		ConexionBD cn = ConexionBD();
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string consulta = "SELECT nombres, apellidos FROM `proyecto final super mercado`.clientes WHERE NIT = '" + nitdetalle + "';";
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				while (fila = mysql_fetch_row(resultado)) {
+					cout << "Nombre de Cliente: " << fila[0] << " " << fila[1] << endl;
+				}
+			}
+			else {
+				cout << "Error al ingresar informacion" << endl;
+			}
+		}
+		else {
+			cout << "Error en la conexion" << endl;
+		}
+		cn.cerrar_conexion();
+
+	}
+
+	void ventaventa() {
+		int q_estado;
+		ConexionBD cn = ConexionBD();
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		cn.abrir_conexion();
+		if (cn.getConectar()) {
+			string consulta = "SELECT MAX(idVenta) as IDVENTA FROM  `proyecto final super mercado`.ventas;";
+			const char* c = consulta.c_str();
+			q_estado = mysql_query(cn.getConectar(), c);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getConectar());
+				while (fila = mysql_fetch_row(resultado)) {
+					cout << fila[0] << "  " << endl;
 				}
 			}
 			else {

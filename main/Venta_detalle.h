@@ -5,6 +5,8 @@
 #include <string>
 #include "Factura_VD.h"
 #include "Producto.h"
+#include <ctime>
+#include <vector>
 
 
 using namespace std;
@@ -47,7 +49,8 @@ public:
 			string p = to_string(idProducto);
 			string c = to_string(cantidad);
 			string u = to_string(precio_costo_unitario);
-			string insert = "INSERT INTO `proyecto final super mercado`.ventas_detalle (idVenta,idProducto,cantidad,precio_costo_unitario)VALUES(" + idv + "," + p + "," + c + "," + u + ");";
+			string insert = "INSERT INTO `proyecto final super mercado`.ventas_detalle (idVenta,idProducto,cantidad,precio_unitario)VALUES(" + idv + "," + p + "," + c + "," + u + ");";
+			//               INSERT INTO `proyecto final super mercado`.`ventas_detalle` (`idVenta`, `idProducto`, `cantidad`, `precio_unitario`) VALUES ('7', '2', '10', '25');
 			const char* i = insert.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
@@ -70,13 +73,25 @@ public:
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "SELECT a.idVenta_detalle, b.nofactura, c.proveedor, d.producto, a.cantidad, a.precio_costo_unitario, b.fecha_orden, b.fechaingreso  FROM `proyecto final super mercado`.compras_detalle as a INNER JOIN `proyecto final super mercado`.compras as b ON a.idCompra = b.idCompra INNER JOIN  `proyecto final super mercado`.proveedores as c ON b.IdProveedor = c.IdProveedor INNER JOIN `proyecto final super mercado`.productos as d ON a.IdProducto = d.IdProducto;";
+			string consulta = "SELECT c.nofactura, d.nit, d.nombres, d.apellidos, b.idProducto, b.producto, a.cantidad, b.precio_venta FROM `proyecto final super mercado`.ventas_detalle AS a INNER JOIN `proyecto final super mercado`.productos AS b ON a.idProducto = b.idProducto INNER JOIN  `proyecto final super mercado`.ventas AS c ON a.idVenta =c.idVenta INNER JOIN  `proyecto final super mercado`.clientes AS d ON c.idCliente = d.idCliente;";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 				while (fila = mysql_fetch_row(resultado)) {
-					cout << fila[0] << ",  " << fila[1] << ",  " << fila[2] << ",  " << fila[3] << ",  " << fila[4] << ",  " << fila[5] << ",  " << fila[6] << ",  " << fila[7] << endl;
+					cout << "" << endl;
+					cout << "     No. Factura:        " << fila[0] << endl;
+					cout << " " << endl;
+					cout << "     NIT:                " << fila[1] << endl;
+					cout << "     Cliente:            " << fila[2] << " " << fila[3] << endl;
+					cout << "     Direccion:          " << "CIUDAD" << endl;
+					cout << " " << endl;
+					cout << "            PRODUCTOS          " << endl;
+					cout << " " << endl;
+					cout << "                 Cantidad       Precio" << endl;
+					cout << "     " << fila[4] << " - " << fila[5] << "        " << fila[6] << "        " << fila[7] << endl;
+					cout << "---------------------------------------------------------------------------------------------" << endl;
+					cout << " " << endl;
 				}
 			}
 			else {
@@ -97,21 +112,27 @@ public:
 		MYSQL_RES* resultado;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string consulta = "SELECT MAX(a.idVenta_detalle), b.no_orden_compra, c.proveedor, d.producto, a.cantidad, a.precio_costo_unitario, b.fecha_orden, b.fechaingreso  FROM `proyecto final super mercado`.compras_detalle as a INNER JOIN `proyecto final super mercado`.compras as b ON a.idCompra = b.idCompra INNER JOIN  `proyecto final super mercado`.proveedores as c ON b.IdProveedor = c.IdProveedor INNER JOIN `proyecto final super mercado`.productos as d ON a.IdProducto = d.IdProducto;";
+			string consulta = "SELECT c.nofactura, d.nit, d.nombres, d.apellidos, b.idProducto, b.producto, a.cantidad, b.precio_venta, SUM(b.precio_venta * a.cantidad) as TOTAL FROM `proyecto final super mercado`.ventas_detalle AS a INNER JOIN `proyecto final super mercado`.productos AS b ON a.idProducto = b.idProducto INNER JOIN  `proyecto final super mercado`.ventas AS c ON a.idVenta =c.idVenta INNER JOIN  `proyecto final super mercado`.clientes AS d ON c.idCliente = d.idCliente;";
 			const char* c = consulta.c_str();
 			q_estado = mysql_query(cn.getConectar(), c);
 			if (!q_estado) {
 				resultado = mysql_store_result(cn.getConectar());
 				while (fila = mysql_fetch_row(resultado)) {
+
+
 					cout << "" << endl;
-					cout << "ID Compra:                    " << fila[0] << endl;
-					cout << "No.de Orden:                  " << fila[1] << endl;
-					cout << "Proveedor:                    " << fila[2] << endl;
-					cout << "Producto:                     " << fila[3] << endl;
-					cout << "Cantidad:                     " << fila[4] << endl;
-					cout << "Precio Costo Unitario:        " << fila[5] << endl;
-					cout << "Fecha de Orden:               " << fila[6] << endl;
-					cout << "Fecha de Ingreso:             " << fila[7] << endl;
+					cout << "     No. Factura:        " << fila[0] << endl;
+					cout << " " << endl;
+					cout << "     NIT:                " << fila[1] << endl;
+					cout << "     Cliente:            " << fila[2] << " " << fila[3] << endl;
+					cout << "     Direccion:          " << "CIUDAD" << endl;
+					cout << " " << endl;
+					cout << "            PRODUCTOS          " << endl;
+					cout << " " << endl;
+					cout << "                 Cantidad       Precio" << endl;
+					cout << "     " << fila[4] << " - " << fila[5] << "        " << fila[6] << "        " << fila[7] << endl;
+					cout << " " << endl;
+					cout << "     TOTAL:                     " << fila[8] << endl;
 				}
 			}
 			else {
@@ -131,7 +152,7 @@ public:
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
 			string id = to_string(idVenta_detalle);
-			string eliminar = "DELETE from `proyecto final super mercado`.compras_detalle WHERE idVenta_detalle = " + id + ";";
+			string eliminar = "DELETE from `proyecto final super mercado`.ventas_detalle WHERE idVenta_detalle = " + id + ";";
 			const char* i = eliminar.c_str();
 			q_estado = mysql_query(cn.getConectar(), i);
 			if (!q_estado) {
